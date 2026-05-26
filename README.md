@@ -2,6 +2,14 @@
 
 PRD-driven Next.js landing page implementation with strict visual parity requirements.
 
+## Status
+
+This project is **unfinished**.
+
+- The landing page implementation is functional and pushed for review.
+- Visual fidelity and content parity are still in progress.
+- Treat the current build as a working draft, not final production sign-off.
+
 ## Stack
 
 - Next.js App Router
