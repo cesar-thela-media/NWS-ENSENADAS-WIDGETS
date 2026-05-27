@@ -71,7 +71,7 @@ export const landingContent: LandingContent = {
   transformation: {
     eyebrow:      "THE TRANSFORMATION",
     headline:     "See the Difference We Make",
-    caseStudyCta: "View Full Case Study",
+    caseStudyCta: "Browse Our Work",
     chips:        ["6 Week Timeline", "$52,000 Investment", "Full Gut Remodel"],
     beforeImage:  ux(PH.kitchenLight, 1400),
     afterImage:   ux(PH.kitchenDark, 1400),

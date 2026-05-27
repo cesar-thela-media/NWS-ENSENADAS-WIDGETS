@@ -114,9 +114,15 @@
   }
 }
 
+/* ── Mid-range: allow wrap before mobile breakpoint ── */
+@media (max-width: 960px) {
+  .heading {
+    white-space: normal;
+  }
+}
+
 /* ── Mobile ── */
 @media (max-width: 760px) {
-  /* Allow heading to wrap gracefully on small screens */
   .heading {
     white-space: normal;
     font-size: clamp(26px, 5.5vw, 44px);

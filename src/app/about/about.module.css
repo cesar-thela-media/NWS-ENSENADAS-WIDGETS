@@ -1,23 +1,27 @@
-/* ── Page Hero ── */
+/* ── Page Hero ──
+   About uses center-alignment so the brand
+   copy feels cinematic rather than anchored
+   to the bottom like utility pages.          ── */
 .pageHero {
   position: relative;
   min-height: clamp(380px, 40vw, 580px);
   overflow: hidden;
   display: flex;
-  align-items: flex-end;
+  align-items: center; /* center — brand focus */
+  justify-content: center;
 }
 
 .heroImg {
   object-fit: cover;
-  object-position: center 40%;
+  object-position: center 30%; /* show upper portion of image */
 }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
+  /* Radial vignette from center — more cinematic */
   background:
-    linear-gradient(180deg, rgba(10, 8, 4, 0.22) 0%, rgba(10, 8, 4, 0.72) 100%),
-    linear-gradient(90deg, rgba(20, 12, 4, 0.72) 0%, rgba(10, 8, 4, 0.18) 60%);
+    radial-gradient(ellipse at 50% 50%, rgba(10, 8, 4, 0.28) 0%, rgba(10, 8, 4, 0.82) 100%);
 }
 
 .heroContent {
@@ -25,6 +29,7 @@
   z-index: 2;
   padding: clamp(40px, 4vw, 80px) clamp(20px, 2.6vw, 56px);
   max-width: 760px;
+  text-align: center; /* centered for brand page */
 }
 
 .heroEyebrow {
@@ -49,6 +54,7 @@
   line-height: 1.5;
   color: rgba(200, 196, 188, 0.9);
   max-width: 540px;
+  margin-inline: auto;
 }
 
 /* ── Shared utilities ── */

@@ -3,7 +3,9 @@
   position: relative;
   background: var(--cream, #f4f1ec);
   color: var(--text-dark, #1c1f27);
+  /* Top padding + bottom padding that covers the stats row bottom border */
   padding: clamp(52px, 4vw, 88px) clamp(20px, 2.6vw, 56px) 0;
+  padding-bottom: 0; /* stats row provides the visual bottom edge */
 }
 
 /* ── Two-column grid: copy | collage ── */
@@ -111,6 +113,7 @@
 /* ── Stats row ── */
 .statsRow {
   margin-top: 40px;
+  margin-bottom: clamp(24px, 2vw, 40px); /* section bottom breathing room */
   border-top: 1px solid var(--line-dark, rgba(30, 33, 39, 0.16));
   border-bottom: 1px solid var(--line-dark, rgba(30, 33, 39, 0.16));
   display: grid;

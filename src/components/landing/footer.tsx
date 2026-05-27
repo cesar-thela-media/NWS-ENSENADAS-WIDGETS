@@ -23,7 +23,10 @@ export function Footer() {
               aria-label="NWS on Facebook"
               className={styles.socialLink}
             >
-              f
+              {/* Facebook */}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+              </svg>
             </a>
             <a
               href="https://www.instagram.com/nwshomes/"
@@ -32,7 +35,12 @@ export function Footer() {
               aria-label="NWS on Instagram"
               className={styles.socialLink}
             >
-              in
+              {/* Instagram */}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+                <circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/>
+              </svg>
             </a>
             <a
               href="https://www.houzz.com/professionals/home-builders/nws-custom-homes-and-remodeling-pfvwus-pf~849721310"
@@ -41,7 +49,10 @@ export function Footer() {
               aria-label="NWS on Houzz"
               className={styles.socialLink}
             >
-              h
+              {/* Houzz house-mark */}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M12 2L3 9v13h7v-7h4v7h7V9L12 2zm0 2.5 7 5.8V20h-3v-7H8v7H5V10.3l7-5.8z"/>
+              </svg>
             </a>
             <a
               href="https://g.page/r/CRyZ8e5jvBiVEBM/review"
@@ -50,7 +61,10 @@ export function Footer() {
               aria-label="Leave a Google review"
               className={styles.socialLink}
             >
-              ★
+              {/* Google G */}
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M21.8 10.2H12v3.6h5.6c-.5 2.6-2.8 4.4-5.6 4.4-3.3 0-6-2.7-6-6s2.7-6 6-6c1.5 0 2.8.5 3.8 1.4l2.6-2.6C16.7 3.5 14.5 2.6 12 2.6 6.8 2.6 2.6 6.8 2.6 12s4.2 9.4 9.4 9.4c5.4 0 9-3.8 9-9.2 0-.6-.1-1.3-.2-2z"/>
+              </svg>
             </a>
           </nav>
         </div>

@@ -20,6 +20,7 @@
   align-items: center;
   min-height: 68px;
   padding: 0 clamp(20px, 2.6vw, 56px);
+  gap: 0 clamp(16px, 2vw, 40px);
 }
 
 /* ── Menu button ── */
@@ -81,17 +82,82 @@
   transform: translateY(-1px);
 }
 
+/* ── Desktop nav ── */
+.desktopNav {
+  display: none; /* hidden on mobile; shown via media query */
+  align-items: center;
+  gap: clamp(20px, 2vw, 36px);
+  justify-self: center;
+}
+
+.desktopNavLink {
+  font-size: clamp(13px, 0.82vw, 16px);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: rgba(244, 241, 236, 0.76);
+  transition: color 140ms ease;
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.desktopNavLink::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold-soft, #d4a858);
+  transition: width 200ms ease;
+}
+
+.desktopNavLink:hover {
+  color: #fff;
+}
+
+.desktopNavLink:hover::after,
+.desktopNavLinkActive::after {
+  width: 100%;
+}
+
+.desktopNavLinkActive {
+  color: #fff;
+}
+
+@media (min-width: 960px) {
+  .inner {
+    grid-template-columns: auto 1fr auto;
+  }
+
+  .menuButton {
+    display: none; /* hide hamburger at desktop */
+  }
+
+  .desktopNav {
+    display: flex;
+  }
+
+  .logo {
+    justify-self: start;
+  }
+
+  .contactButton {
+    justify-self: end;
+  }
+}
+
 /* ── Focus rings ── */
 .menuButton:focus-visible,
 .logo:focus-visible,
-.contactButton:focus-visible {
+.contactButton:focus-visible,
+.desktopNavLink:focus-visible {
   outline: 2px solid var(--gold-warm, #f4cd7a);
   outline-offset: 3px;
   border-radius: 4px;
 }
 
-/* ── Mobile ── */
-@media (max-width: 600px) {
+/* ── Mobile (< 600px) ── */
+@media (max-width: 599px) {
   .inner {
     grid-template-columns: 1fr 1fr;
     grid-template-areas:
@@ -102,7 +168,7 @@
     min-height: unset;
   }
 
-  .menuButton { grid-area: menu; }
+  .menuButton  { grid-area: menu; }
   .contactButton { grid-area: contact; padding: 8px 14px; }
-  .logo { grid-area: logo; }
+  .logo        { grid-area: logo; justify-self: center; }
 }

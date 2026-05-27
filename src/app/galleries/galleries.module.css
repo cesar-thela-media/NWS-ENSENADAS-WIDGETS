@@ -7,14 +7,15 @@
   align-items: flex-end;
 }
 
-.heroImg { object-fit: cover; object-position: center 40%; }
+.heroImg { object-fit: cover; object-position: center 35%; }
 
 .heroOverlay {
   position: absolute;
   inset: 0;
+  /* Right-to-left bias — draws eye to the copy on the left */
   background:
-    linear-gradient(180deg, rgba(8,6,2,.14) 0%, rgba(8,6,2,.78) 100%),
-    linear-gradient(90deg, rgba(18,10,4,.68) 0%, rgba(10,8,4,.12) 60%);
+    linear-gradient(180deg, rgba(8, 6, 2, 0.08) 0%, rgba(8, 6, 2, 0.84) 100%),
+    linear-gradient(270deg, rgba(8, 6, 2, 0.06) 0%, rgba(18, 10, 4, 0.74) 55%);
 }
 
 .heroContent {
@@ -105,6 +106,12 @@
   display: grid;
   grid-template-columns: repeat(2, minmax(0,1fr));
   gap: clamp(16px,1.6vw,28px);
+}
+
+@media (min-width: 1200px) {
+  .categoryGrid {
+    grid-template-columns: repeat(4, minmax(0,1fr));
+  }
 }
 
 .categoryCard {
@@ -200,7 +207,7 @@
 .mosaic {
   display: grid;
   grid-template-columns: repeat(4, minmax(0,1fr));
-  grid-template-rows: repeat(2, 240px);
+  grid-auto-rows: clamp(180px, 18vw, 280px);
   gap: 10px;
 }
 

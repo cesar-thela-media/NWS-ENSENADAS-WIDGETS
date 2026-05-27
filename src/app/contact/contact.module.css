@@ -15,9 +15,9 @@
 .heroOverlay {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(180deg, rgba(8, 6, 2, 0.18) 0%, rgba(8, 6, 2, 0.78) 100%),
-    linear-gradient(90deg, rgba(18, 10, 4, 0.68) 0%, rgba(10, 8, 4, 0.12) 60%);
+  /* Lighter, flatter treatment — contact is a utility page,
+     content is below the fold in the form section             */
+  background: linear-gradient(180deg, rgba(8, 6, 2, 0.28) 0%, rgba(8, 6, 2, 0.70) 100%);
 }
 
 .heroContent {

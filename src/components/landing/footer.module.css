@@ -3,7 +3,7 @@
   position: relative;
   background: radial-gradient(circle at 50% 0%, rgba(52, 38, 22, 0.18) 0%, #111418 28%, #0c0f13 100%);
   color: var(--text-light-sub, #c8c4bc);
-  padding: 28px clamp(20px, 2.6vw, 56px) 16px;
+  padding: clamp(48px, 4vw, 72px) clamp(20px, 2.6vw, 56px) clamp(20px, 1.6vw, 32px);
   border-top: 1px solid var(--line-gold, rgba(160, 120, 64, 0.34));
 }
 
@@ -55,20 +55,23 @@
 .socialLink {
   display: grid;
   place-items: center;
-  width: 34px;
-  height: 34px;
+  width: 36px;
+  height: 36px;
   border-radius: 8px;
   border: 1px solid rgba(160, 120, 64, 0.36);
   color: #d4a85a;
-  font-family: var(--font-ui), sans-serif;
-  font-weight: 700;
-  font-size: 14px;
-  transition: background 160ms ease, color 160ms ease;
+  transition: background 160ms ease, color 160ms ease, border-color 160ms ease;
+}
+
+.socialLink svg {
+  display: block;
+  flex-shrink: 0;
 }
 
 .socialLink:hover {
   background: rgba(160, 120, 64, 0.18);
   color: #f4cd7a;
+  border-color: rgba(160, 120, 64, 0.7);
 }
 
 /* ── Column headings ── */
