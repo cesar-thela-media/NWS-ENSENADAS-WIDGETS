@@ -5,16 +5,19 @@
   align-items: center;
   justify-content: center;
   gap: clamp(12px, 1.6vw, 24px);
-  padding: 10px clamp(16px, 2vw, 32px);
-  background: linear-gradient(135deg, #1a1208 0%, #2a1e0e 50%, #1a1208 100%);
-  border-bottom: 1px solid var(--line-gold, rgba(160, 120, 64, 0.3));
+  padding: 12px clamp(16px, 2vw, 32px);
+  background:
+    linear-gradient(90deg, rgba(241, 205, 135, 0.08), transparent 22%, transparent 78%, rgba(241, 205, 135, 0.08)),
+    linear-gradient(135deg, #17120c 0%, #261b11 50%, #17120c 100%);
+  border-bottom: 1px solid rgba(241, 205, 135, 0.16);
   flex-wrap: wrap;
 }
 
 .text {
-  font-size: clamp(12px, 0.8vw, 15px);
+  font-size: clamp(12px, 0.8vw, 14px);
   color: var(--text-light-sub, #c8c4bc);
   text-align: center;
+  letter-spacing: 0.01em;
 }
 
 .text strong {
@@ -26,18 +29,22 @@
   display: inline-flex;
   align-items: center;
   border-radius: 999px;
-  padding: 6px 18px;
-  background: var(--gold, #a07840);
-  color: #fff;
+  min-height: 38px;
+  padding: 0 18px;
+  background: linear-gradient(135deg, var(--gold, #9c6f34), var(--gold-mid, #be8a49));
+  color: #131922;
   font-size: clamp(12px, 0.72vw, 14px);
   font-weight: 600;
-  letter-spacing: 0.04em;
-  transition: background 160ms ease, transform 140ms ease;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition: background 160ms ease, transform 140ms ease, box-shadow 140ms ease;
   white-space: nowrap;
   flex-shrink: 0;
+  box-shadow: 0 10px 26px rgba(156, 111, 52, 0.22);
 }
 
 .cta:hover {
   background: var(--gold-mid, #c09050);
   transform: translateY(-1px);
+  box-shadow: 0 14px 32px rgba(156, 111, 52, 0.28);
 }

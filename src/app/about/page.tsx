@@ -7,6 +7,9 @@ import { CtaBand } from "@/components/landing/cta-band";
 import { landingContent } from "@/content/landing";
 import styles from "./about.module.css";
 
+// ⚠️  TODO: Replace remaining picsum/unsplash images with real NWS photography.
+const CDN = "https://www.nws-homes.com/wp-content/uploads/2023/01";
+
 export const metadata: Metadata = {
   title: "About NWS | Custom Homes & Remodeling — Richmond, TX",
   description:
@@ -62,7 +65,7 @@ export default function AboutPage() {
         {/* ── Page Hero ── */}
         <section className={styles.pageHero}>
           <Image
-            src="https://picsum.photos/seed/nws-about-hero/1600/900"
+            src={`${CDN}/custom-homes-2.jpeg`}
             alt="NWS custom home exterior"
             fill
             priority

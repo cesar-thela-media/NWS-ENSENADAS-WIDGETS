@@ -1,14 +1,13 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import styles from "./cookie-consent.module.css";
 
 export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const consent = localStorage.getItem("nws-cookie-consent");
-    if (!consent) setVisible(true);
+    setVisible(!localStorage.getItem("nws-cookie-consent"));
   }, []);
 
   function accept() {

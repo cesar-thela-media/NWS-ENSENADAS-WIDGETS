@@ -11,9 +11,8 @@ export interface ServiceData {
   startingPrice?: string;
 }
 
-function ux(id: string, w: number): string {
-  return `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
-}
+// ⚠️  TODO: Replace all picsum images below with real NWS photography.
+//          See ASSET-LICENSES.md for approved image sources.
 
 export const SERVICES: ServiceData[] = [
   {
@@ -31,6 +30,7 @@ export const SERVICES: ServiceData[] = [
       "Energy-efficient building practices and HERS rating available",
     ],
     features: ["Custom Floor Plans", "Premium Materials", "Energy Efficient", "Dedicated PM", "Warranty Included"],
+    // ⚠️  TODO: Replace with real NWS custom home exterior photo
     heroImage: "https://picsum.photos/seed/nws-exterior/1600/900",
     galleryImages: [
       "https://picsum.photos/seed/nws-ext1/800/600",

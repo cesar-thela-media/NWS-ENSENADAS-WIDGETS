@@ -15,6 +15,11 @@ Every image used in implementation must:
 2. Not be sourced from `public/reference/` or `section-by-section/`
 3. Be recorded in this ledger below with URL and photographer credit
 
+## Image Deployment Status
+
+> ✅ **DONE** — All images in the ledger below have been swapped from placeholders to real NWS CDN URLs in `src/content/landing.ts`.
+> Remaining picsum/unsplash images across inner pages and service detail pages are marked with `⚠️  TODO` for future replacement.
+
 ## Placeholder Compliance Ledger
 
 Scores are 0–5 per criterion. All must be ≥ 4 to pass. Status = PASS | PENDING | FAIL.
@@ -54,6 +59,23 @@ Scores are 0–5 per criterion. All must be ≥ 4 to pass. Status = PASS | PENDI
 | services.cardImages[4] | `open concept kitchen living space` |
 | services.testimonialImage | `luxury kitchen interior horizontal composition` |
 | contact.mapImage | `service area map office location local business` |
+
+## Remaining placeholders — PENDING replacement
+
+These images still use Unsplash/picsum placeholders and need real NWS photography before final launch:
+
+| File | Image location | Type | Status |
+|------|---------------|------|--------|
+| `src/content/landing.ts` | hero slideshow (4 images) | Full-width hero background | PENDING |
+| `src/content/landing.ts` | services.cardImages[5..6] (Room Additions, Open Concept) | Service card background | PENDING |
+| `src/content/services.ts` | All service heroImage + galleryImages | Service detail page (10 services × 5 images each) | PENDING |
+| `src/app/about/page.tsx` | Page hero, story images, team photos (3) | Inner page hero + content | PENDING |
+| `src/app/contact/contact-client.tsx` | Page hero | Inner page hero | PENDING |
+| `src/app/faqs/faqs-client.tsx` | Page hero | Inner page hero | PENDING |
+| `src/app/galleries/page.tsx` | Page hero, gallery cover images, featured mosaic | Gallery grid | PENDING |
+| `src/app/galleries/[type]/page.tsx` | All gallery detail images (48 total) | Gallery detail pages | PENDING |
+
+> **Next step**: Source real NWS project photography for each pending entry, update the URLs, and mark as PASS in the ledger above.
 
 ## Reference assets (for visual comparison only — do NOT use in production implementation)
 

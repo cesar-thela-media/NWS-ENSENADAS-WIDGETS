@@ -1,7 +1,7 @@
 /* ── Hero ── */
 .pageHero {
   position: relative;
-  min-height: clamp(300px,30vw,440px);
+  min-height: clamp(360px,34vw,500px);
   overflow: hidden;
   display: flex;
   align-items: flex-end;
@@ -20,7 +20,7 @@
 .heroContent {
   position: relative;
   z-index: 2;
-  padding: clamp(36px,3.6vw,68px) clamp(20px,2.6vw,56px);
+  padding: clamp(48px,4.4vw,84px) clamp(20px,2.6vw,56px);
   max-width: 720px;
 }
 
@@ -50,7 +50,7 @@
 /* ── FAQ section ── */
 .faqSection {
   background: var(--cream, #f4f1ec);
-  padding: clamp(52px,4.2vw,88px) clamp(20px,2.6vw,56px);
+  padding: clamp(76px,5.4vw,112px) clamp(20px,2.6vw,56px);
 }
 
 .faqInner {
@@ -63,7 +63,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-bottom: clamp(28px,2.4vw,44px);
+  margin-bottom: clamp(36px,3vw,54px);
 }
 
 .tab {
@@ -174,7 +174,7 @@
 /* ── Contact strip ── */
 .contactStrip {
   background: var(--dark, #0c0f14);
-  padding: clamp(40px,3.6vw,68px) clamp(20px,2.6vw,56px);
+  padding: clamp(56px,4.6vw,84px) clamp(20px,2.6vw,56px);
   border-top: 1px solid rgba(160,120,64,.24);
 }
 

@@ -1,14 +1,12 @@
 import type { Metadata, Viewport } from "next";
-import { Cormorant_Garamond, Inter } from "next/font/google";
+import { Cormorant_Garamond, Manrope } from "next/font/google";
 import Script from "next/script";
-import { CookieConsent } from "@/components/ui/cookie-consent";
+import { ClientShell } from "@/components/ui/client-shell";
 import { PromoBar } from "@/components/ui/promo-bar";
-import { SocialProofBadges } from "@/components/ui/social-proof-badges";
-import { FloatingActions } from "@/components/ui/floating-actions";
 import "./globals.css";
 
 /* ── Fonts ─────────────────────────────────────────────── */
-const inter = Inter({
+const manrope = Manrope({
   variable: "--font-ui",
   subsets: ["latin"],
   display: "swap",
@@ -63,7 +61,7 @@ export default function RootLayout({
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
-    <html lang="en" className={`${inter.variable} ${cormorant.variable}`}>
+    <html lang="en" className={`${manrope.variable} ${cormorant.variable}`}>
       {/* ── Google Tag Manager ── Add NEXT_PUBLIC_GTM_ID=GTM-XXXXXX to .env.local */}
       {gtmId && (
         <Script
@@ -88,8 +86,7 @@ export default function RootLayout({
         )}
         <PromoBar />
         {children}
-        <FloatingActions />
-        <CookieConsent />
+        <ClientShell />
       </body>
     </html>
   );

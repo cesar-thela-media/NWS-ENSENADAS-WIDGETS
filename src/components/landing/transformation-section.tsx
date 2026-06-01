@@ -51,7 +51,7 @@ export function TransformationSection({ content }: TransformationSectionProps) {
           {/* After image — right-side reveal */}
           <div
             className={styles.afterLayer}
-            style={{ width: `${100 - position}%` }}
+            style={{ clipPath: `inset(0 0 0 ${position}%)` }}
           >
             <Image
               src={content.afterImage}

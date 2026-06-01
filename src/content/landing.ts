@@ -1,57 +1,29 @@
 import type { LandingContent } from "@/lib/types";
 
-// ---------------------------------------------------------------------------
-// All images are Unsplash placeholders — confirmed-working photo IDs.
-// Replace with real NWS photography before launch.
-// ---------------------------------------------------------------------------
+// ── Image helpers ──────────────────────────────────────────────────────────
+// Production images sourced from NWS CDN (PASS per ASSET-LICENSES.md ledger).
+// Remaining Unsplash/picsum placeholders are marked with TODO for replacement.
 
-/** Build a clean Unsplash URL: photo-ID?w=W&q=80&auto=format&fit=crop */
-function ux(id: string, w: number): string {
+const CDN = "https://www.nws-homes.com/wp-content/uploads/2023/01";
+
+/** Unsplash placeholder helper — for images still awaiting real NWS photography */
+function unsplash(id: string, w: number): string {
   return `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 }
 
-/** picsum.photos guaranteed placeholder — seeded so it's always the same image */
-function pic(seed: string, w: number, h: number): string {
-  return `https://picsum.photos/seed/${seed}/${w}/${h}`;
-}
+// ⚠️  TODO: Replace with real NWS project photography before launch.
+const SLIDESHOW_FALLBACK = [
+  unsplash("1600585154340-be6161a56a0c", 1920),
+  unsplash("1600607687939-ce8a6c25118c", 1920),
+  unsplash("1560448204-e02f11c3d0e2",   1920),
+  unsplash("1522771739844-6a9f6d5f14af",1920),
+];
 
-// ── Photo IDs (all unique — no image is used twice across the codebase) ────
-const PH = {
-  // Hero
-  heroBg:       "1556909114-f6e7ad7d3136",  // dark kitchen island
-  heroSlide1:   "1600585154340-be6161a56a0c", // modern house exterior
-  heroSlide2:   "1600607687939-ce8a6c25118c", // modern architecture
-  heroSlide3:   "1560448204-e02f11c3d0e2",   // bright open living room
-  heroSlide4:   "1522771739844-6a9f6d5f14af", // styled master bedroom
-  heroRecent:   "1552321554-5fefe8c9ef14",   // luxury freestanding bath
-
-  // About collage
-  aboutMain:    "1484154218962-a197022b5858", // bright open kitchen
-  aboutTop:     "1600566753376-12c8ab7fb75b", // modern bathroom
-  aboutBottom:  "1600047509807-ba8f99d2cdde", // modern home exterior
-
-  // Transformation
-  transBefore:  "1586023492125-27b2c045efd7", // open concept dining
-
-  // Services cards — each unique
-  srvCustom:    "1600585154526-990dced4db0d", // house exterior
-  srvKitchen:   "1600210492486-724fe5c67fb0", // living room with fireplace
-  srvBath:      "1618220179428-22790b4617f5", // modern living room
-  srvShower:    "1621607512514-6c39d1e8a6d3", // bathroom vanity
-  srvBathtub:   "1600566753086-713c9bb4bf3e", // kitchen renovation
-  srvAddition:  "1616594039962-c0ba6d7080b8", // construction blueprint
-  srvOpen:      "1590573743760-0c0b2b2f9d5c", // renovation tools
-
-  // Testimonial section
-  testimonialBg: "1565007994092-92f1c52b187a", // architectural plans
-};
-
-// Picsum seeds — each used exactly once
-const PICS = {
-  exterior: pic("nws-exterior", 600, 900),
-  addition: pic("nws-addition", 600, 900),
-  aboutBot: pic("nws-openplan", 1000, 700),
-};
+// ⚠️  TODO: Services cardImages[5..6] — replace with real NWS photography.
+const SRV_FALLBACK: string[] = [
+  "https://picsum.photos/seed/nws-room-addition/600/900",  // Room Additions
+  "https://picsum.photos/seed/nws-open-concept/600/900",   // Open Concept Remodeling
+];
 
 export const landingContent: LandingContent = {
   // ── Hero ──────────────────────────────────────────────────────────────────
@@ -62,14 +34,9 @@ export const landingContent: LandingContent = {
     secondaryCta:    "Book a Consultation",
     recentLabel:     "Recently Completed",
     recentProject:   "Master Bath · Sugar Land, TX",
-    backgroundImage: ux(PH.heroBg, 1920),
-    slideshowImages: [
-      ux(PH.heroSlide1, 1920),
-      ux(PH.heroSlide2, 1920),
-      ux(PH.heroSlide3, 1920),
-      ux(PH.heroSlide4, 1920),
-    ],
-    recentImage:     ux(PH.heroRecent, 400),
+    backgroundImage: `${CDN}/kitchen-remodeling-richmond-tx.jpg`,
+    slideshowImages: SLIDESHOW_FALLBACK,
+    recentImage:     `${CDN}/bathroom-remodeling-richmond-tx.jpg`,
   },
 
   // ── About ─────────────────────────────────────────────────────────────────
@@ -78,9 +45,9 @@ export const landingContent: LandingContent = {
     headline: "Timeless Craftsmanship.\nElevated Living.",
     body:     "Since 2007, NWS has built and remodeled hundreds of homes across Houston. Every project is personal.",
     collage: {
-      main:   ux(PH.aboutMain,   1200),
-      top:    ux(PH.aboutTop,     800),
-      bottom: ux(PH.aboutBottom, 1000),
+      main:   `${CDN}/remodeling-1.jpeg`,
+      top:    `${CDN}/custom-homes-2.jpeg`,
+      bottom: `${CDN}/remodeling-2.jpeg`,
     },
     stats: [
       { value: "18+",  label: "Years"      },
@@ -96,8 +63,8 @@ export const landingContent: LandingContent = {
     headline:     "See the Difference We Make",
     caseStudyCta: "Browse Our Work",
     chips:        ["6 Week Timeline", "$52,000 Investment", "Full Gut Remodel"],
-    beforeImage:  ux(PH.transBefore, 1400),
-    afterImage:   pic("nws-trans-after", 1400, 900),
+    beforeImage:  `${CDN}/1-Addition-before.jpeg`,
+    afterImage:   `${CDN}/1-Addition-after.jpeg`,
   },
 
   // ── Services ──────────────────────────────────────────────────────────────
@@ -114,19 +81,18 @@ export const landingContent: LandingContent = {
       "Open Concept\nRemodeling",
     ],
     cardImages: [
-      ux(PH.srvCustom,  600),     // Custom Home Building
-      ux(PH.srvKitchen, 600),     // Kitchen Remodeling
-      ux(PH.srvBath,    600),     // Bathroom Remodeling
-      ux(PH.srvShower,  600),     // Shower Remodel
-      ux(PH.srvBathtub, 600),     // Bathtub Remodel
-      ux(PH.srvAddition,600),     // Room Additions
-      ux(PH.srvOpen,    600),     // Open Concept Remodeling
+      `${CDN}/hero-home-remodeled-richmond-tx-1024x576.webp`, // Custom Home Building
+      `${CDN}/remodeling-3.jpeg`,                              // Kitchen Remodeling
+      `${CDN}/kitchen-remodeling-richmond-tx.jpg`,             // Bathroom Remodeling
+      `${CDN}/bathroom-remodeling-richmond-tx.jpg`,            // Shower Remodel
+      `${CDN}/remodeling-4.jpeg`,                              // Bathtub Remodel
+      ...SRV_FALLBACK,                                          // Room Additions + Open Concept
     ],
     testimonial:
       "NWS remodeled the downstairs of our house including the kitchen, dining, 2 living rooms, and a half bath. It turned out beautifully and they were great to work with.",
     attribution:      "— Allison Crane, Richmond TX",
     rating:           "4.9 — 130+ Google Reviews",
-    testimonialImage: ux(PH.testimonialBg, 900),
+    testimonialImage: `${CDN}/kitchen-remodeling-richmond-tx.jpg`,
   },
 
   // ── CTA Band ──────────────────────────────────────────────────────────────

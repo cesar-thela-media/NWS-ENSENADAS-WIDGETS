@@ -1,6 +1,12 @@
 /* Ensures the landing page root matches the dark body background.
    overflow-x and base color are already set on body in globals.css. */
 .page {
-  background: var(--dark, #0c0f14);
+  background:
+    radial-gradient(circle at top, rgba(160, 120, 64, 0.14), transparent 28%),
+    linear-gradient(180deg, #0b0e13 0%, #11161f 26%, #f4f1ec 26.1%, #f4f1ec 100%);
   width: 100%;
+}
+
+.sectionWrap {
+  position: relative;
 }

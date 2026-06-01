@@ -8,6 +8,9 @@ import { landingContent } from "@/content/landing";
 import { GalleryMosaicClient } from "./gallery-mosaic-client";
 import styles from "./galleries.module.css";
 
+// ⚠️  TODO: Replace all picsum gallery images with real NWS project photography.
+const CDN = "https://www.nws-homes.com/wp-content/uploads/2023/01";
+
 export const metadata: Metadata = {
   title: "Photo Galleries | NWS Custom Homes & Remodeling",
   description:
@@ -68,7 +71,7 @@ export default function GalleriesPage() {
         {/* ── Hero ── */}
         <section className={styles.pageHero}>
           <Image
-            src="https://picsum.photos/seed/nws-galleries-hero/1600/900"
+            src={`${CDN}/hero-home-remodeled-richmond-tx-1024x576.webp`}
             alt="NWS portfolio"
             fill
             priority

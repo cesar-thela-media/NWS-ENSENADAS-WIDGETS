@@ -5,29 +5,31 @@
 :root {
   /* ── Core palette ─────────────────────────────────── */
   /* Background creams */
-  --cream:        #f4f1ec;   /* primary light bg — warm off-white */
-  --cream-alt:    #f0ede6;   /* slightly deeper cream for alternating sections */
-  --cream-border: rgba(166, 124, 69, 0.18);
+  --cream:        #f5efe7;   /* primary light bg — warm bone */
+  --cream-alt:    #ede4d8;   /* deeper editorial surface */
+  --cream-border: rgba(146, 106, 56, 0.16);
 
   /* Dark backgrounds */
-  --dark:         #0c0f14;   /* deepest dark — CTA band, footer core */
-  --dark-alt:     #111620;   /* slightly lifted dark — transformation section */
-  --dark-warm:    #1a1208;   /* warm near-black (hero overlay base) */
-  --dark-card:    #131720;   /* card/chip backgrounds on dark sections */
+  --dark:         #0a0d12;   /* deepest dark — CTA band, footer core */
+  --dark-alt:     #121924;   /* slightly lifted dark — transformation section */
+  --dark-warm:    #1d140d;   /* warm near-black (hero overlay base) */
+  --dark-card:    #171d28;   /* card/chip backgrounds on dark sections */
+  --surface-light: rgba(255, 252, 248, 0.76);
+  --surface-dark:  rgba(18, 25, 36, 0.76);
 
   /* Gold accent system */
-  --gold:         #a07840;   /* primary gold — rules, icons, borders */
-  --gold-mid:     #c09050;   /* mid-weight gold — hover states */
-  --gold-soft:    #d4a858;   /* soft gold — muted labels, sub-accents */
-  --gold-warm:    #f4cd7a;   /* warm highlight gold — CTA links, chip icons */
+  --gold:         #9c6f34;   /* primary bronze-gold — rules, icons, borders */
+  --gold-mid:     #be8a49;   /* mid-weight gold — hover states */
+  --gold-soft:    #d3ab6a;   /* soft gold — muted labels, sub-accents */
+  --gold-warm:    #f1cd87;   /* warm highlight gold — CTA links, chip icons */
 
   /* Text */
   --text-light:       #f4f1ec;   /* primary text on dark bg */
   --text-light-sub:   #c8c4bc;   /* secondary text on dark bg */
   --text-muted-light: #9e9b95;   /* muted/tertiary on dark */
-  --text-dark:        #1c1f27;   /* primary text on light bg */
-  --text-dark-sub:    #505762;   /* secondary text on light bg */
-  --text-muted-dark:  #7a8290;   /* muted text on light bg — eyebrows */
+  --text-dark:        #171c24;   /* primary text on light bg */
+  --text-dark-sub:    #4e5764;   /* secondary text on light bg */
+  --text-muted-dark:  #77808d;   /* muted text on light bg — eyebrows */
 
   /* Dividers */
   --line-dark:    rgba(30, 33, 39, 0.15);
@@ -37,14 +39,14 @@
   /* ── Radii ────────────────────────────────────────── */
   --r-xs:   6px;
   --r-sm:   10px;
-  --r-md:   16px;
-  --r-lg:   22px;
+  --r-md:   18px;
+  --r-lg:   28px;
   --r-pill: 999px;
 
   /* ── Shadows ──────────────────────────────────────── */
   --shadow-sm:   0 4px 14px rgba(0, 0, 0, 0.13);
-  --shadow-md:   0 10px 30px rgba(0, 0, 0, 0.20);
-  --shadow-lg:   0 20px 56px rgba(0, 0, 0, 0.28);
+  --shadow-md:   0 14px 36px rgba(0, 0, 0, 0.18);
+  --shadow-lg:   0 28px 76px rgba(0, 0, 0, 0.24);
   --shadow-card: 0 12px 36px rgba(0, 0, 0, 0.22);
   --shadow-gold: 0 8px 28px rgba(160, 120, 64, 0.22);
 
@@ -64,9 +66,9 @@
   --t-slow:   380ms;
 
   /* ── Layout ───────────────────────────────────────── */
-  --max-w:    1288px;
+  --max-w:    1240px;
   --gutter:   clamp(20px, 2.6vw, 56px);
-  --section-pad-y: clamp(52px, 4.2vw, 88px);
+  --section-pad-y: clamp(64px, 5vw, 104px);
 }
 
 /* ════════════════════════════════════════
@@ -92,6 +94,8 @@ body {
   min-height: 100dvh;
   color: var(--text-light);
   font-family: var(--font-ui), "Segoe UI", system-ui, Arial, sans-serif;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -99,6 +103,7 @@ body {
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display), Georgia, "Times New Roman", serif;
   font-weight: 400;
+  text-wrap: balance;
 }
 
 a {
@@ -118,6 +123,17 @@ ul, ol {
 button {
   font-family: inherit;
   cursor: pointer;
+}
+
+/* ── Smooth scroll with offset for sticky header anchors ── */
+html {
+  scroll-padding-top: 80px;
+}
+
+@media (max-width: 768px) {
+  html {
+    scroll-padding-top: 60px;
+  }
 }
 
 /* ════════════════════════════════════════

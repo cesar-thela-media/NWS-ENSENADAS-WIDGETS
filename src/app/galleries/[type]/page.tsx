@@ -9,6 +9,8 @@ import { landingContent } from "@/content/landing";
 import { GalleryGridClient } from "./gallery-grid-client";
 import styles from "./gallery-type.module.css";
 
+// ⚠️  TODO: Replace picsum gallery images with real NWS project photography.
+
 interface GalleryCategory {
   slug: string;
   title: string;
@@ -18,9 +20,6 @@ interface GalleryCategory {
 
 function pic(seed: string, w = 800, h = 600) {
   return `https://picsum.photos/seed/${seed}/${w}/${h}`;
-}
-function ux(id: string, w: number) {
-  return `https://images.unsplash.com/photo-${id}?w=${w}&q=80&auto=format&fit=crop`;
 }
 
 const GALLERY_DATA: GalleryCategory[] = [

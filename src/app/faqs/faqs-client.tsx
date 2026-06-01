@@ -7,6 +7,9 @@ import { SiteHeader } from "@/components/ui/site-header";
 import { Footer } from "@/components/landing/footer";
 import styles from "./faqs.module.css";
 
+// ⚠️  TODO: Replace picsum hero image with real NWS photography.
+const CDN = "https://www.nws-homes.com/wp-content/uploads/2023/01";
+
 const FAQ_GROUPS = [
   {
     category: "Getting Started",
@@ -134,7 +137,7 @@ export function FaqsClient() {
         {/* ── Hero ── */}
         <section className={styles.pageHero}>
           <Image
-            src="https://picsum.photos/seed/nws-faqs-hero/1400/800"
+            src={`${CDN}/remodeling-1.jpeg`}
             alt="NWS consultation"
             fill
             priority

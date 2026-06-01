@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useEffect, useCallback } from "react";
+import { useState } from "react";
 import { trackLandingEvent } from "@/lib/analytics";
 import { NavDrawer } from "@/components/ui/nav-drawer";
 import type { HeroContent } from "@/lib/types";
@@ -12,69 +12,32 @@ interface HeroProps {
   content: HeroContent;
 }
 
-const SLIDE_INTERVAL = 6000; // 6 seconds per slide
+const HERO_FACTS = [
+  { value: "18+", label: "Years building in Fort Bend" },
+  { value: "500+", label: "Custom homes and remodels" },
+  { value: "4.9", label: "Average rating across reviews" },
+];
 
 export function Hero({ content }: HeroProps) {
   const [drawerOpen, setDrawerOpen] = useState(false);
-  const [slideIndex, setSlideIndex] = useState(0);
-
-  const slides = content.slideshowImages ?? [content.backgroundImage];
-  const totalSlides = slides.length;
-
-  const goToSlide = useCallback((index: number) => {
-    setSlideIndex(index);
-  }, []);
-
-  const nextSlide = useCallback(() => {
-    setSlideIndex((prev) => (prev + 1) % totalSlides);
-  }, [totalSlides]);
-
-  useEffect(() => {
-    if (totalSlides <= 1) return;
-    const timer = setInterval(nextSlide, SLIDE_INTERVAL);
-    return () => clearInterval(timer);
-  }, [nextSlide, totalSlides]);
 
   return (
     <>
       <section className={styles.section} aria-labelledby="hero-heading" id="top">
         <div className={styles.mediaFrame}>
-          {/* Background slideshow */}
-          {slides.map((src, i) => (
-            <Image
-              key={src}
-              src={src}
-              alt={`NWS project ${i + 1}`}
-              fill
-              priority={i === 0}
-              sizes="100vw"
-              className={`${styles.image} ${i === slideIndex ? styles.imageActive : styles.imageInactive}`}
-              style={{ objectFit: "cover", objectPosition: "center 52%" }}
-            />
-          ))}
+          <Image
+            src={content.backgroundImage}
+            alt="NWS custom remodeling project"
+            fill
+            priority
+            sizes="100vw"
+            className={styles.image}
+          />
 
-          {/* Gradient overlay */}
           <div className={styles.overlay} />
-
-          {/* Slideshow dots */}
-          {totalSlides > 1 && (
-            <div className={styles.slideDots} role="tablist" aria-label="Hero slideshow">
-              {slides.map((_, i) => (
-                <button
-                  key={i}
-                  className={`${styles.slideDot} ${i === slideIndex ? styles.slideDotActive : ""}`}
-                  onClick={() => goToSlide(i)}
-                  role="tab"
-                  aria-selected={i === slideIndex}
-                  aria-label={`Slide ${i + 1}`}
-                  type="button"
-                />
-              ))}
-            </div>
-          )}
+          <div className={styles.overlayGlow} aria-hidden="true" />
 
           <div className={styles.inner}>
-            {/* ── Nav ── */}
             <header className={styles.header}>
               <button
                 className={styles.menuButton}
@@ -101,55 +64,63 @@ export function Hero({ content }: HeroProps) {
               </Link>
             </header>
 
-            {/* ── Copy ── */}
-            <div className={styles.content}>
-              <h1 id="hero-heading" className={styles.title}>
-                {content.headline}
-              </h1>
-              <p className={styles.subcopy}>{content.subcopy}</p>
+            <div className={styles.contentGrid}>
+              <div className={styles.content}>
+                <p className={styles.kicker}>Custom Homes and Remodeling</p>
+                <h1 id="hero-heading" className={styles.title}>
+                  {content.headline}
+                </h1>
+                <p className={styles.subcopy}>{content.subcopy}</p>
 
-              <div className={styles.ctaRow}>
-                <Link
-                  className={styles.primaryCta}
-                  href="/services"
-                  onClick={() => trackLandingEvent("landing_hero_primary_cta_click")}
-                >
-                  {content.primaryCta} <span aria-hidden="true">›</span>
-                </Link>
-                <Link
-                  className={styles.secondaryCta}
-                  href="/contact"
-                  onClick={() => trackLandingEvent("landing_hero_secondary_cta_click")}
-                >
-                  {content.secondaryCta}
-                </Link>
+                <div className={styles.ctaRow}>
+                  <Link
+                    className={styles.primaryCta}
+                    href="/services"
+                    onClick={() => trackLandingEvent("landing_hero_primary_cta_click")}
+                  >
+                    {content.primaryCta} <span aria-hidden="true">›</span>
+                  </Link>
+                  <Link
+                    className={styles.secondaryCta}
+                    href="/contact"
+                    onClick={() => trackLandingEvent("landing_hero_secondary_cta_click")}
+                  >
+                    {content.secondaryCta}
+                  </Link>
+                </div>
+
+                <ul className={styles.factRow} aria-label="Company highlights">
+                  {HERO_FACTS.map((fact) => (
+                    <li key={fact.label} className={styles.factItem}>
+                      <span className={styles.factValue}>{fact.value}</span>
+                      <span className={styles.factLabel}>{fact.label}</span>
+                    </li>
+                  ))}
+                </ul>
               </div>
+
+              <Link
+                className={styles.projectPanel}
+                href="/galleries"
+                onClick={() => trackLandingEvent("landing_hero_recent_project_click")}
+              >
+                <div className={styles.projectImageWrap}>
+                  <Image
+                    src={content.recentImage}
+                    alt="Recently completed NWS remodel"
+                    fill
+                    sizes="(max-width: 960px) 100vw, 28vw"
+                    className={styles.projectImage}
+                  />
+                </div>
+                <div className={styles.projectBody}>
+                  <p className={styles.projectEyebrow}>{content.recentLabel}</p>
+                  <p className={styles.projectTitle}>{content.recentProject}</p>
+                  <p className={styles.projectMeta}>Richmond, Sugar Land, Katy, and Greater Houston</p>
+                  <span className={styles.projectLink}>View project gallery →</span>
+                </div>
+              </Link>
             </div>
-
-            {/* ── Recently completed card ── */}
-            <Link
-              className={styles.recentCard}
-              href="/galleries"
-              onClick={() => trackLandingEvent("landing_hero_recent_project_click")}
-            >
-              <Image
-                src={content.recentImage}
-                alt="Recently completed NWS remodel"
-                width={142}
-                height={106}
-                className={styles.recentThumb}
-              />
-              <div>
-                <p className={styles.recentLabel}>{content.recentLabel}</p>
-                <p className={styles.recentProject}>{content.recentProject}</p>
-              </div>
-            </Link>
-
-          </div>
-
-          {/* ── Scroll indicator ── */}
-          <div className={styles.scrollIndicator} aria-hidden="true">
-            <span className={styles.scrollChevron} />
           </div>
         </div>
       </section>

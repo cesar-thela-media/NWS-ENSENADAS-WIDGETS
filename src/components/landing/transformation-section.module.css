@@ -2,41 +2,42 @@
 .section {
   position: relative;
   background: radial-gradient(circle at 22% 12%, #242b38 0%, #111620 52%, #0b0e12 100%);
-  padding: clamp(52px, 3.8vw, 82px) clamp(20px, 2.7vw, 58px) clamp(32px, 2.2vw, 48px);
+  padding: clamp(88px, 6vw, 128px) clamp(20px, 2.7vw, 58px) clamp(70px, 4vw, 92px);
 }
 
 .inner {
   display: flex;
   flex-direction: column;
-  max-width: 1288px;
+  max-width: var(--max-w, 1240px);
   margin: 0 auto;
 }
 
 /* ── Eyebrow + heading ── */
 .eyebrow {
   font-size: clamp(12px, 0.78vw, 17px);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--text-muted-light, #9e9b95);
+  color: var(--gold-soft, #d3ab6a);
   font-weight: 600;
 }
 
 .heading {
-  margin-top: 8px;
-  font-size: clamp(36px, 5.4vw, 88px);
-  line-height: 1.02;
+  margin-top: 14px;
+  max-width: 12ch;
+  font-size: clamp(40px, 5.4vw, 92px);
+  line-height: 0.95;
   color: var(--text-light, #f4f1ec);
 }
 
 /* ── Compare frame — takes up ~65% of section height like the reference ── */
 .compareFrame {
   position: relative;
-  margin-top: clamp(20px, 1.8vw, 30px);
-  height: clamp(280px, 26vw, 500px);
-  border-radius: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.22);
+  margin-top: clamp(34px, 2.6vw, 44px);
+  height: clamp(320px, 30vw, 560px);
+  border-radius: 28px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
   overflow: hidden;
-  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.44);
+  box-shadow: 0 32px 80px rgba(0, 0, 0, 0.40);
 }
 
 .beforeImage,
@@ -51,8 +52,9 @@
 /* Clip to reveal just the right portion */
 .afterLayer {
   position: absolute;
-  inset: 0 0 0 auto;
+  inset: 0;
   overflow: hidden;
+  will-change: clip-path;
 }
 
 .afterImage {
@@ -124,16 +126,18 @@
   outline: none;
 }
 
-/* Handle hover effect */
-.compareFrame:hover .sliderHandle {
-  width: 56px;
-  height: 56px;
-  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+/* Handle hover effect — only on devices that support hover */
+@media (hover: hover) {
+  .compareFrame:hover .sliderHandle {
+    width: 56px;
+    height: 56px;
+    box-shadow: 0 10px 32px rgba(0, 0, 0, 0.35);
+  }
 }
 
 /* ── Chips row ── */
 .chips {
-  margin-top: 18px;
+  margin-top: 28px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: clamp(10px, 1.2vw, 20px);
@@ -144,10 +148,10 @@
   display: flex;
   align-items: center;
   gap: 14px;
-  border-radius: 999px;
-  border: 1px solid var(--line-light, rgba(255, 255, 255, 0.16));
-  background: rgba(255, 255, 255, 0.04);
-  min-height: 60px;
+  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.06);
+  min-height: 78px;
   padding: 0 20px;
   font-size: clamp(13px, 0.84vw, 18px);
   color: var(--text-light, #f4f1ec);
@@ -168,10 +172,10 @@
 
 /* ── Case study link ── */
 .caseStudyLink {
-  align-self: center;
-  margin-top: clamp(14px, 1.4vw, 22px);
+  align-self: flex-start;
+  margin-top: clamp(28px, 2.2vw, 36px);
   color: var(--gold-warm, #f4cd7a);
-  font-size: clamp(16px, 1.3vw, 26px);
+  font-size: clamp(18px, 1.3vw, 26px);
   font-family: var(--font-display), Georgia, serif;
   transition: opacity 150ms ease;
 }
@@ -182,7 +186,7 @@
 @media (min-width: 1440px) {
   .section { padding: 66px 58px 24px; }
 
-  .heading { font-size: 88px; }
+  .heading { font-size: 92px; }
 
   .compareFrame {
     height: 490px;
@@ -209,16 +213,28 @@
 /* ── Tablet ── */
 @media (max-width: 900px) {
   .chips { grid-template-columns: 1fr; }
+
+  .caseStudyLink {
+    align-self: center;
+  }
 }
 
 /* ── Mobile ── */
 @media (max-width: 480px) {
-  .section { padding: 42px 18px 30px; }
+  .section { padding: 58px 18px 44px; }
 
   .compareFrame {
-    height: 230px;
+    height: clamp(230px, 44vw, 300px);
     border-radius: 14px;
   }
 
-  .chip { min-height: 50px; }
+  .chip { min-height: 50px; padding: 0 14px; font-size: clamp(12px, 3.2vw, 14px); gap: 10px; }
+
+  .chipIcon { width: 32px; height: 32px; font-size: 15px; }
+
+  .sliderHandle { width: 40px; height: 40px; font-size: 15px; }
+
+  .beforeLabel, .afterLabel { font-size: clamp(14px, 3.8vw, 16px); top: 10px; }
+  .beforeLabel { left: 12px; }
+  .afterLabel  { right: 12px; }
 }
