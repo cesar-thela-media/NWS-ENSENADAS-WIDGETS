@@ -95,22 +95,55 @@ export default async function GalleryTypePage({ params }: Props) {
   const gallery = GALLERY_DATA.find((g) => g.slug === type);
   if (!gallery) notFound();
 
+  const totalImages = gallery.images.length;
+  const locationCount = new Set(gallery.images.map((image) => image.label).filter(Boolean)).size;
+
   return (
     <>
       <SiteHeader />
       <main>
-        {/* ── Top bar ── */}
+        {/* ── Hero ── */}
         <section className={styles.topBar}>
           <div className={styles.topBarInner}>
-            <Link href="/galleries" className={styles.backLink}>← All Galleries</Link>
-            <h1 className={styles.pageTitle}>{gallery.title}</h1>
-            <p className={styles.pageDesc}>{gallery.description}</p>
+            <div className={styles.heroCopy}>
+              <Link href="/galleries" className={styles.backLink}>← All Galleries</Link>
+              <p className={styles.heroEyebrow}>CURATED COLLECTION</p>
+              <h1 className={styles.pageTitle}>{gallery.title}</h1>
+              <p className={styles.pageDesc}>{gallery.description}</p>
+              <div className={styles.heroActions}>
+                <a href="#photo-grid" className={styles.primaryBtn}>Browse Photos</a>
+                <Link href="/contact" className={styles.secondaryBtn}>Ask About This Scope</Link>
+              </div>
+            </div>
+            <aside className={styles.heroPanel}>
+              <p className={styles.panelEyebrow}>Collection overview</p>
+              <h2 className={styles.panelTitle}>A closer look at real work in this project category.</h2>
+              <div className={styles.heroStats}>
+                <div className={styles.heroStat}>
+                  <span className={styles.heroStatValue}>{totalImages}</span>
+                  <span className={styles.heroStatLabel}>Photos in this gallery</span>
+                </div>
+                <div className={styles.heroStat}>
+                  <span className={styles.heroStatValue}>{locationCount || 1}</span>
+                  <span className={styles.heroStatLabel}>Location labels shown</span>
+                </div>
+              </div>
+            </aside>
           </div>
         </section>
 
         {/* ── Photo grid (client — handles lightbox) ── */}
-        <section className={styles.gridSection}>
+        <section className={styles.gridSection} id="photo-grid">
           <div className={styles.gridInner}>
+            <div className={styles.gridIntro}>
+              <div>
+                <p className={styles.sectionEyebrow}>PHOTO COLLECTION</p>
+                <h2 className={styles.sectionHeading}>Browse the Full Set</h2>
+              </div>
+              <p className={styles.gridLead}>
+                Open any image for a larger view. Use the labels to spot locations and compare layouts, finishes, and detail decisions across multiple projects.
+              </p>
+            </div>
             <GalleryGridClient images={gallery.images} />
           </div>
         </section>
@@ -118,10 +151,17 @@ export default async function GalleryTypePage({ params }: Props) {
         {/* ── Other galleries ── */}
         <section className={styles.otherSection}>
           <div className={styles.otherInner}>
-            <p className={styles.eyebrow}>BROWSE MORE</p>
-            <h2 className={styles.sectionHeading}>Other Galleries</h2>
+            <div className={styles.otherIntro}>
+              <div>
+                <p className={styles.eyebrow}>BROWSE MORE</p>
+                <h2 className={styles.sectionHeading}>Other Galleries</h2>
+              </div>
+              <p className={styles.otherLead}>
+                If you are comparing project types, these adjacent collections give a quick read on how NWS approaches other scopes.
+              </p>
+            </div>
             <div className={styles.otherGrid}>
-              {GALLERY_DATA.filter((g) => g.slug !== type).map((g) => (
+              {GALLERY_DATA.filter((g) => g.slug !== type).map((g, index) => (
                 <Link key={g.slug} href={`/galleries/${g.slug}`} className={styles.otherCard}>
                   <div className={styles.otherImgWrap}>
                     <Image
@@ -132,6 +172,7 @@ export default async function GalleryTypePage({ params }: Props) {
                       style={{ objectFit: "cover", transition: "transform 380ms ease" }}
                       className={styles.otherImg}
                     />
+                    <span className={styles.otherIndex}>{String(index + 1).padStart(2, "0")}</span>
                     <div className={styles.otherOverlay} />
                     <span className={styles.otherTitle}>{g.title}</span>
                   </div>
