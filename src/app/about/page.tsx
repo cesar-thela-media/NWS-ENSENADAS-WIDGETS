@@ -19,18 +19,18 @@ export const metadata: Metadata = {
 const TEAM = [
   {
     name: "Founder & Principal",
+    focus: "Project leadership and long-view planning",
     bio: "With over 18 years leading residential construction across Fort Bend County, our founder built NWS on the belief that every homeowner deserves the craftsmanship once reserved for luxury builds.",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=500&q=80&auto=format&fit=crop",
   },
   {
     name: "Director of Design",
+    focus: "Design cohesion across structure and finishes",
     bio: "Our design director brings a decade of interior architecture to every project — ensuring that structural and aesthetic decisions work hand-in-hand from the first sketch.",
-    image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=500&q=80&auto=format&fit=crop",
   },
   {
     name: "Head of Construction",
+    focus: "Field execution, scheduling, and quality control",
     bio: "Our construction lead has overseen 300+ completed builds, applying meticulous standards to scheduling, material sourcing, and on-site execution.",
-    image: "https://images.unsplash.com/photo-1504257432389-52343af06ae3?w=500&q=80&auto=format&fit=crop",
   },
 ];
 
@@ -151,7 +151,7 @@ export default function AboutPage() {
               <div className={styles.storyMedia}>
                 <div className={styles.storyImgMain}>
                   <Image
-                    src="https://picsum.photos/seed/nws-about-story-main/800/600"
+                    src={`${CDN}/remodeling-1.jpeg`}
                     alt="NWS completed kitchen remodel"
                     fill
                     sizes="(max-width: 1100px) 100vw, 50vw"
@@ -160,7 +160,7 @@ export default function AboutPage() {
                 </div>
                 <div className={styles.storyImgSide}>
                   <Image
-                    src="https://picsum.photos/seed/nws-about-story-side/600/600"
+                    src={`${CDN}/remodeling-4.jpeg`}
                     alt="NWS luxury bathroom"
                     fill
                     sizes="(max-width: 1100px) 100vw, 25vw"
@@ -226,15 +226,9 @@ export default function AboutPage() {
             <div className={styles.teamGrid}>
               {TEAM.map((member, index) => (
                 <div key={member.name} className={styles.teamCard}>
-                  <div className={styles.teamImgWrap}>
-                    <Image
-                      src={member.image}
-                      alt={member.name}
-                      fill
-                      sizes="(max-width: 760px) 100vw, 33vw"
-                      style={{ objectFit: "cover" }}
-                    />
+                  <div className={styles.teamCardTop}>
                     <span className={styles.teamIndex}>{String(index + 1).padStart(2, "0")}</span>
+                    <span className={styles.teamFocus}>{member.focus}</span>
                   </div>
                   <div className={styles.teamInfo}>
                     <h3 className={styles.teamName}>{member.name}</h3>

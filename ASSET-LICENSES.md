@@ -66,14 +66,16 @@ These images still use Unsplash/picsum placeholders and need real NWS photograph
 
 | File | Image location | Type | Status |
 |------|---------------|------|--------|
-| `src/content/landing.ts` | hero slideshow (4 images) | Full-width hero background | PENDING |
-| `src/content/landing.ts` | services.cardImages[5..6] (Room Additions, Open Concept) | Service card background | PENDING |
-| `src/content/services.ts` | All service heroImage + galleryImages | Service detail page (10 services × 5 images each) | PENDING |
-| `src/app/about/page.tsx` | Page hero, story images, team photos (3) | Inner page hero + content | PENDING |
 | `src/app/contact/contact-client.tsx` | Page hero | Inner page hero | PENDING |
 | `src/app/faqs/faqs-client.tsx` | Page hero | Inner page hero | PENDING |
 | `src/app/galleries/page.tsx` | Page hero, gallery cover images, featured mosaic | Gallery grid | PENDING |
 | `src/app/galleries/[type]/page.tsx` | All gallery detail images (48 total) | Gallery detail pages | PENDING |
+
+### Completed in current pass
+
+- `src/content/landing.ts` now uses only NWS CDN imagery for hero slideshow and service fallback cards.
+- `src/content/services.ts` now uses NWS CDN imagery for service detail hero and gallery content.
+- `src/app/about/page.tsx` now uses NWS CDN project imagery for story media, and the team section no longer relies on stock portrait photography.
 
 > **Next step**: Source real NWS project photography for each pending entry, update the URLs, and mark as PASS in the ledger above.
 
