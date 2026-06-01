@@ -66,18 +66,19 @@ These images still use Unsplash/picsum placeholders and need real NWS photograph
 
 | File | Image location | Type | Status |
 |------|---------------|------|--------|
-| `src/app/contact/contact-client.tsx` | Page hero | Inner page hero | PENDING |
-| `src/app/faqs/faqs-client.tsx` | Page hero | Inner page hero | PENDING |
-| `src/app/galleries/page.tsx` | Page hero, gallery cover images, featured mosaic | Gallery grid | PENDING |
-| `src/app/galleries/[type]/page.tsx` | All gallery detail images (48 total) | Gallery detail pages | PENDING |
+| `src/app/contact/contact-client.tsx` | Page hero | Inner page hero | PASS |
+| `src/app/faqs/faqs-client.tsx` | Page hero | Inner page hero | PASS |
+| `src/app/galleries/page.tsx` | Page hero, gallery cover images, featured mosaic | Gallery grid | PASS |
+| `src/app/galleries/[type]/page.tsx` | All gallery detail images (48 total) | Gallery detail pages | PASS |
 
 ### Completed in current pass
 
 - `src/content/landing.ts` now uses only NWS CDN imagery for hero slideshow and service fallback cards.
 - `src/content/services.ts` now uses NWS CDN imagery for service detail hero and gallery content.
 - `src/app/about/page.tsx` now uses NWS CDN project imagery for story media, and the team section no longer relies on stock portrait photography.
+- `src/app/contact/contact-client.tsx`, `src/app/faqs/faqs-client.tsx`, `src/app/galleries/page.tsx`, and `src/app/galleries/[type]/page.tsx` now use only NWS CDN imagery.
 
-> **Next step**: Source real NWS project photography for each pending entry, update the URLs, and mark as PASS in the ledger above.
+> **Status**: All currently tracked placeholder image surfaces in the marketing frontend have been replaced with NWS CDN imagery.
 
 ## Reference assets (for visual comparison only — do NOT use in production implementation)
 

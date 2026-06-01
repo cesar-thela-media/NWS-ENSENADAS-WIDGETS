@@ -93,26 +93,35 @@
 @media (max-width: 640px) {
   .banner {
     left: 12px;
-    right: 12px;
+    right: auto;
+    width: min(340px, calc(100vw - 24px));
     bottom: 12px;
     border-radius: 20px;
+    padding: 14px;
   }
 
   .inner {
     flex-direction: column;
-    text-align: center;
+    align-items: stretch;
+    gap: 12px;
+  }
+
+  .text {
+    min-width: 0;
+    font-size: 12px;
+    line-height: 1.5;
   }
 
   .actions {
     width: 100%;
-    justify-content: center;
+    justify-content: stretch;
   }
 
   .acceptBtn,
   .declineBtn {
     flex: 1;
-    max-width: 160px;
-    text-align: center;
-    justify-content: center;
+    min-height: 40px;
+    max-width: none;
+    padding: 0 16px;
   }
 }

@@ -8,8 +8,21 @@ import { landingContent } from "@/content/landing";
 import { GalleryMosaicClient } from "./gallery-mosaic-client";
 import styles from "./galleries.module.css";
 
-// ⚠️  TODO: Replace all picsum gallery images with real NWS project photography.
 const CDN = "https://www.nws-homes.com/wp-content/uploads/2023/01";
+const cdn = (file: string) => `${CDN}/${file}`;
+
+const NWS_IMAGES = {
+  customHome: cdn("hero-home-remodeled-richmond-tx-1024x576.webp"),
+  customHomeDetail: cdn("custom-homes-2.jpeg"),
+  kitchen: cdn("kitchen-remodeling-richmond-tx.jpg"),
+  bath: cdn("bathroom-remodeling-richmond-tx.jpg"),
+  remodelLiving: cdn("remodeling-1.jpeg"),
+  remodelDetail: cdn("remodeling-2.jpeg"),
+  remodelKitchen: cdn("remodeling-3.jpeg"),
+  remodelBath: cdn("remodeling-4.jpeg"),
+  additionBefore: cdn("1-Addition-before.jpeg"),
+  additionAfter: cdn("1-Addition-after.jpeg"),
+};
 
 export const metadata: Metadata = {
   title: "Photo Galleries | NWS Custom Homes & Remodeling",
@@ -22,28 +35,28 @@ const GALLERY_CATEGORIES = [
     slug: "custom-homes",
     title: "Custom Homes",
     count: 24,
-    coverImage: "https://picsum.photos/seed/nws-gallery-homes/800/600",
+    coverImage: NWS_IMAGES.customHome,
     description: "Ground-up custom home builds from foundation to move-in ready.",
   },
   {
     slug: "kitchen-remodeling",
     title: "Kitchen Remodeling",
     count: 38,
-    coverImage: "https://picsum.photos/seed/nws-gallery-kitchen/800/600",
+    coverImage: NWS_IMAGES.kitchen,
     description: "Full gut remodels, cabinet refreshes, and open concept transformations.",
   },
   {
     slug: "bathroom-remodeling",
     title: "Bathroom Remodeling",
     count: 31,
-    coverImage: "https://picsum.photos/seed/nws-gallery-bath/800/600",
+    coverImage: NWS_IMAGES.bath,
     description: "Spa-inspired master baths, tub-to-shower conversions, and more.",
   },
   {
     slug: "room-additions",
     title: "Room Additions",
     count: 18,
-    coverImage: "https://picsum.photos/seed/nws-gallery-add/800/600",
+    coverImage: NWS_IMAGES.additionAfter,
     description: "Seamlessly integrated additions that look like they were always there.",
   },
 ];
@@ -60,19 +73,15 @@ const CURATION_NOTES = [
   "Open any photo for a cleaner, larger look inside the lightbox.",
 ];
 
-function pic(seed: string) {
-  return `https://picsum.photos/seed/${seed}/600/450`;
-}
-
 const FEATURED = [
-  { src: "https://picsum.photos/seed/nws-featured-kitchen/700/525", alt: "Bright open kitchen" },
-  { src: "https://picsum.photos/seed/nws-featured-bath/700/525", alt: "Luxury bathroom" },
-  { src: pic("nws-f1"), alt: "Custom home exterior" },
-  { src: "https://picsum.photos/seed/nws-featured-living/700/525", alt: "Open living room" },
-  { src: "https://picsum.photos/seed/nws-featured-dining/700/525", alt: "Open concept dining" },
-  { src: pic("nws-f2"), alt: "Master bedroom suite" },
-  { src: pic("nws-f3"), alt: "Room addition interior" },
-  { src: "https://picsum.photos/seed/nws-featured-dark-kitchen/700/525", alt: "Dark modern kitchen" },
+  { src: NWS_IMAGES.kitchen, alt: "Bright open kitchen" },
+  { src: NWS_IMAGES.bath, alt: "Luxury bathroom" },
+  { src: NWS_IMAGES.customHome, alt: "Custom home exterior" },
+  { src: NWS_IMAGES.remodelLiving, alt: "Open living room" },
+  { src: NWS_IMAGES.remodelKitchen, alt: "Open concept dining" },
+  { src: NWS_IMAGES.remodelDetail, alt: "Master bedroom suite" },
+  { src: NWS_IMAGES.additionAfter, alt: "Room addition interior" },
+  { src: NWS_IMAGES.customHomeDetail, alt: "Dark modern kitchen" },
 ];
 
 const TOTAL_PHOTOS = GALLERY_CATEGORIES.reduce((sum, category) => sum + category.count, 0);

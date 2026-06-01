@@ -9,7 +9,21 @@ import { landingContent } from "@/content/landing";
 import { GalleryGridClient } from "./gallery-grid-client";
 import styles from "./gallery-type.module.css";
 
-// ⚠️  TODO: Replace picsum gallery images with real NWS project photography.
+const CDN = "https://www.nws-homes.com/wp-content/uploads/2023/01";
+const cdn = (file: string) => `${CDN}/${file}`;
+
+const NWS_IMAGES = {
+  customHome: cdn("hero-home-remodeled-richmond-tx-1024x576.webp"),
+  customHomeDetail: cdn("custom-homes-2.jpeg"),
+  kitchen: cdn("kitchen-remodeling-richmond-tx.jpg"),
+  bath: cdn("bathroom-remodeling-richmond-tx.jpg"),
+  remodelLiving: cdn("remodeling-1.jpeg"),
+  remodelDetail: cdn("remodeling-2.jpeg"),
+  remodelKitchen: cdn("remodeling-3.jpeg"),
+  remodelBath: cdn("remodeling-4.jpeg"),
+  additionBefore: cdn("1-Addition-before.jpeg"),
+  additionAfter: cdn("1-Addition-after.jpeg"),
+};
 
 interface GalleryCategory {
   slug: string;
@@ -18,9 +32,65 @@ interface GalleryCategory {
   images: { src: string; alt: string; label?: string }[];
 }
 
-function pic(seed: string, w = 800, h = 600) {
-  return `https://picsum.photos/seed/${seed}/${w}/${h}`;
-}
+const CUSTOM_HOME_POOL = [
+  NWS_IMAGES.customHome,
+  NWS_IMAGES.customHomeDetail,
+  NWS_IMAGES.remodelLiving,
+  NWS_IMAGES.remodelDetail,
+  NWS_IMAGES.remodelKitchen,
+  NWS_IMAGES.kitchen,
+  NWS_IMAGES.customHome,
+  NWS_IMAGES.customHomeDetail,
+  NWS_IMAGES.remodelLiving,
+  NWS_IMAGES.remodelDetail,
+  NWS_IMAGES.remodelKitchen,
+  NWS_IMAGES.kitchen,
+];
+
+const KITCHEN_POOL = [
+  NWS_IMAGES.kitchen,
+  NWS_IMAGES.remodelKitchen,
+  NWS_IMAGES.remodelLiving,
+  NWS_IMAGES.customHome,
+  NWS_IMAGES.kitchen,
+  NWS_IMAGES.remodelKitchen,
+  NWS_IMAGES.remodelLiving,
+  NWS_IMAGES.customHomeDetail,
+  NWS_IMAGES.kitchen,
+  NWS_IMAGES.remodelKitchen,
+  NWS_IMAGES.remodelLiving,
+  NWS_IMAGES.customHome,
+];
+
+const BATHROOM_POOL = [
+  NWS_IMAGES.bath,
+  NWS_IMAGES.remodelBath,
+  NWS_IMAGES.remodelDetail,
+  NWS_IMAGES.additionAfter,
+  NWS_IMAGES.bath,
+  NWS_IMAGES.remodelBath,
+  NWS_IMAGES.remodelDetail,
+  NWS_IMAGES.additionAfter,
+  NWS_IMAGES.bath,
+  NWS_IMAGES.remodelBath,
+  NWS_IMAGES.remodelDetail,
+  NWS_IMAGES.additionAfter,
+];
+
+const ADDITION_POOL = [
+  NWS_IMAGES.additionAfter,
+  NWS_IMAGES.additionBefore,
+  NWS_IMAGES.customHomeDetail,
+  NWS_IMAGES.remodelDetail,
+  NWS_IMAGES.additionAfter,
+  NWS_IMAGES.additionBefore,
+  NWS_IMAGES.customHome,
+  NWS_IMAGES.remodelLiving,
+  NWS_IMAGES.additionAfter,
+  NWS_IMAGES.additionBefore,
+  NWS_IMAGES.customHomeDetail,
+  NWS_IMAGES.remodelDetail,
+];
 
 const GALLERY_DATA: GalleryCategory[] = [
   {
@@ -28,7 +98,7 @@ const GALLERY_DATA: GalleryCategory[] = [
     title: "Custom Homes",
     description: "Each home is designed to exact client specifications. Browse completed custom builds from NWS across Greater Houston.",
     images: Array.from({ length: 12 }, (_, i) => ({
-      src: pic(`nws-homes-${i + 1}`),
+      src: CUSTOM_HOME_POOL[i],
       alt: `Custom home build ${i + 1}`,
       label: i % 3 === 0 ? "Richmond, TX" : i % 3 === 1 ? "Sugar Land, TX" : "Katy, TX",
     })),
@@ -38,10 +108,10 @@ const GALLERY_DATA: GalleryCategory[] = [
     title: "Kitchen Remodeling",
     description: "From dark dramatic islands to bright open kitchens — see the range of kitchen transformations NWS has delivered.",
     images: [
-      { src: pic("nws-gallery-dark-kitchen", 800, 600), alt: "Dark modern kitchen island", label: "Sugar Land, TX" },
-      { src: pic("nws-gallery-bright-kitchen", 800, 600), alt: "Bright open kitchen", label: "Katy, TX" },
+      { src: NWS_IMAGES.kitchen, alt: "Dark modern kitchen island", label: "Sugar Land, TX" },
+      { src: NWS_IMAGES.remodelKitchen, alt: "Bright open kitchen", label: "Katy, TX" },
       ...Array.from({ length: 10 }, (_, i) => ({
-        src: pic(`nws-kit-${i + 1}`),
+        src: KITCHEN_POOL[i + 2],
         alt: `Kitchen remodel project ${i + 1}`,
         label: "Greater Houston",
       })),
@@ -52,9 +122,9 @@ const GALLERY_DATA: GalleryCategory[] = [
     title: "Bathroom Remodeling",
     description: "Spa-like master baths, clean guest bathrooms, and accessible ADA designs — explore NWS bathroom projects.",
     images: [
-      { src: pic("nws-gallery-bathroom", 800, 600), alt: "Luxury freestanding bath", label: "Richmond, TX" },
+      { src: NWS_IMAGES.bath, alt: "Luxury freestanding bath", label: "Richmond, TX" },
       ...Array.from({ length: 11 }, (_, i) => ({
-        src: pic(`nws-bath-${i + 1}`),
+        src: BATHROOM_POOL[i + 1],
         alt: `Bathroom remodel ${i + 1}`,
         label: "Greater Houston",
       })),
@@ -65,7 +135,7 @@ const GALLERY_DATA: GalleryCategory[] = [
     title: "Room Additions",
     description: "Seamlessly integrated additions that match the existing home architecture inside and out.",
     images: Array.from({ length: 12 }, (_, i) => ({
-      src: pic(`nws-add-gallery-${i + 1}`),
+      src: ADDITION_POOL[i],
       alt: `Room addition ${i + 1}`,
       label: i % 2 === 0 ? "Fulshear, TX" : "Katy, TX",
     })),

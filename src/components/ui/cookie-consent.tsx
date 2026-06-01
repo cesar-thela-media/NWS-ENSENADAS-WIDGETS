@@ -7,7 +7,17 @@ export function CookieConsent() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    setVisible(!localStorage.getItem("nws-cookie-consent"));
+    if (localStorage.getItem("nws-cookie-consent")) {
+      return;
+    }
+
+    const frame = window.requestAnimationFrame(() => {
+      setVisible(true);
+    });
+
+    return () => {
+      window.cancelAnimationFrame(frame);
+    };
   }, []);
 
   function accept() {

@@ -6,7 +6,6 @@ import { SiteHeader } from "@/components/ui/site-header";
 import { Footer } from "@/components/landing/footer";
 import styles from "./contact.module.css";
 
-// ⚠️  TODO: Replace remaining picsum images with real NWS photography.
 const CDN = "https://www.nws-homes.com/wp-content/uploads/2023/01";
 
 const SERVICES = [
@@ -114,8 +113,8 @@ export function ContactPageClient() {
         {/* ── Page Hero ── */}
         <section className={styles.pageHero}>
           <Image
-            src={`${CDN}/nws-custom-homes-and-remodeling-full-map-1024x576.webp`}
-            alt="NWS project consultation"
+            src={`${CDN}/custom-homes-2.jpeg`}
+            alt="NWS custom home project exterior"
             fill
             priority
             sizes="100vw"

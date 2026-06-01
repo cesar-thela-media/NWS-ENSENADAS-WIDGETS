@@ -102,6 +102,8 @@ export function Footer() {
             <li><Link href="/services/room-additions">Room Additions</Link></li>
             <li><Link href="/services/open-concept-remodeling">Open Concept Remodeling</Link></li>
             <li><Link href="/services/whole-home-remodeling">Whole Home Remodeling</Link></li>
+            <li><Link href="/services/garage-remodel">Garage Remodel</Link></li>
+            <li><Link href="/services/basement-remodeling">Basement Remodeling</Link></li>
             <li><Link href="/services">All Services →</Link></li>
           </ul>
         </div>

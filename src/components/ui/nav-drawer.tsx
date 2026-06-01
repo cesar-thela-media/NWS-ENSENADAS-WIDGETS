@@ -30,6 +30,11 @@ const NAV = [
   { label: "Contact",   href: "/contact" },
 ];
 
+const UTILITY_LINKS = [
+  { label: "Privacy Policy", href: "/privacy-policy" },
+  { label: "Terms of Service", href: "/terms" },
+];
+
 interface NavDrawerProps {
   isOpen: boolean;
   onClose: () => void;
@@ -144,6 +149,13 @@ export function NavDrawer({ isOpen, onClose }: NavDrawerProps) {
             Start Your Project
           </Link>
           <p className={styles.areas}>Richmond · Sugar Land · Katy · Houston</p>
+          <div className={styles.utilityLinks}>
+            {UTILITY_LINKS.map((item) => (
+              <Link key={item.href} href={item.href} className={styles.utilityLink} onClick={onClose}>
+                {item.label}
+              </Link>
+            ))}
+          </div>
         </div>
       </nav>
     </>
