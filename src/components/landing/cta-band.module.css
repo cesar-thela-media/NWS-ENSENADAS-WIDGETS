@@ -206,12 +206,29 @@
 
 /* ── Mobile ── */
 @media (max-width: 760px) {
-  .heading {
-    font-size: clamp(26px, 5.5vw, 44px);
-  }
+  .heading { font-size: clamp(26px, 7vw, 44px); }
+
+  /* Shorter photo strip on narrow screens */
+  .photoStrip { height: clamp(100px, 22vw, 160px); }
+  .photoItem { flex: 0 0 clamp(140px, 36vw, 200px); border-radius: 10px; }
 }
 
 @media (max-width: 640px) {
+  .section { padding-bottom: 52px; }
+
+  .inner { padding: 0 clamp(20px, 5vw, 32px); }
+
+  .body { font-size: clamp(15px, 4vw, 18px); max-width: 100%; }
+
+  .serviceAreas {
+    font-size: 11px;
+    letter-spacing: 0.06em;
+    /* wrap long city list gracefully */
+    white-space: normal;
+    text-align: center;
+    line-height: 1.8;
+  }
+
   .buttonRow { flex-direction: column; align-items: center; }
 
   .primaryButton,

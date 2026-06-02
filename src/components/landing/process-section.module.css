@@ -150,25 +150,36 @@
 
 /* ── Mobile: vertical stack ── */
 @media (max-width: 640px) {
+  .section {
+    padding: 60px clamp(20px, 5vw, 32px) 56px;
+  }
+
+  .header { margin-bottom: 40px; }
+
+  .heading { font-size: clamp(32px, 9vw, 48px); }
+
+  .sub { font-size: clamp(15px, 4vw, 18px); }
+
   .steps {
     grid-template-columns: 1fr;
-    gap: clamp(40px, 6vw, 56px);
+    gap: 0;
   }
 
-  /* Hide the horizontal connecting line on mobile */
   .steps::before { display: none; }
 
-  .step { padding: 0; }
-
-  /* Vertical line between steps */
-  .step:not(:last-child)::after {
-    content: "";
-    display: block;
-    width: 1px;
-    height: clamp(32px, 5vw, 48px);
-    background: linear-gradient(180deg, rgba(156, 111, 52, 0.5) 0%, rgba(156, 111, 52, 0.1) 100%);
-    margin: clamp(20px, 3vw, 28px) auto 0;
+  .step {
+    padding: clamp(28px, 5vw, 40px) 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
   }
 
-  .stepBody { max-width: 380px; }
+  .step:last-child { border-bottom: none; }
+
+  /* Left-align steps on mobile for easier reading */
+  .step { text-align: left; align-items: flex-start; }
+
+  .node { margin: 0 0 16px; }
+
+  .stepBody { max-width: none; text-align: left; }
+
+  .cta { margin-top: 40px; font-size: clamp(17px, 4.5vw, 22px); }
 }

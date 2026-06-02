@@ -231,15 +231,33 @@
 
 /* ── Mobile ── */
 @media (max-width: 540px) {
+  .section {
+    padding-top: 52px;
+    padding-bottom: 36px;
+  }
+
+  .inner { gap: 24px; }
+
+  .heading { font-size: clamp(36px, 10vw, 52px); }
+
   .sideStack { display: none; }
 
   .collage {
     grid-template-columns: 1fr;
-    min-height: 260px;
+    min-height: 240px;
   }
 
   .mainImageWrap {
     grid-row: auto;
-    min-height: 260px;
+    min-height: 240px;
   }
+
+  /* Stats bar: tighten up number + label sizing */
+  .statsRow { border-radius: 18px; }
+
+  .statItem { padding: 22px 10px 18px; }
+
+  .statValue { font-size: clamp(40px, 12vw, 56px); }
+
+  .statLabel { font-size: 10px; letter-spacing: 0.1em; }
 }

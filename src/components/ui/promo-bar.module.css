@@ -48,3 +48,9 @@
   transform: translateY(-1px);
   box-shadow: 0 14px 32px rgba(156, 111, 52, 0.28);
 }
+
+@media (max-width: 560px) {
+  .bar { padding: 10px 16px; gap: 10px; }
+  .text { font-size: 12px; }
+  .cta { font-size: 11px; min-height: 34px; padding: 0 14px; }
+}

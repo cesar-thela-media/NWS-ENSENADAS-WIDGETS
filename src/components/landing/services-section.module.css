@@ -358,7 +358,7 @@
   }
 
   .imagePanel {
-    min-height: clamp(280px, 50vw, 420px);
+    min-height: clamp(240px, 44vw, 360px);
   }
 
   .testimonialBand {
@@ -366,20 +366,38 @@
   }
 
   .mediaCol {
-    min-height: 300px;
+    min-height: 260px;
     clip-path: none;
   }
 }
 
 /* ── Mobile ── */
 @media (max-width: 580px) {
-  .itemLink {
-    grid-template-columns: 36px 1fr auto;
+  .section {
+    padding-top: clamp(52px, 6vw, 86px);
   }
+
+  /* Tighten list items so 7 services don't dominate the scroll */
+  .itemLink {
+    grid-template-columns: 34px 1fr auto;
+    min-height: 56px;
+    padding: 12px 18px;
+  }
+
+  .itemNum { font-size: 13px; }
+  .itemTitle { font-size: 15px; }
   .itemPrice { display: none; }
 
+  /* Image panel compact on mobile */
+  .imagePanel { min-height: 220px; }
+
+  /* Testimonial quote: 26px is 5+ lines on 390px — pull back */
+  .quote { font-size: clamp(20px, 5.4vw, 26px); }
+
   .quoteCol {
-    padding: 28px 20px 24px 30px;
+    padding: 28px 20px 24px 26px;
   }
-  .quoteMark { font-size: 90px; }
+  .quoteMark { font-size: 80px; }
+
+  .attribution { font-size: 13px; margin-top: 14px; }
 }
