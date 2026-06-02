@@ -74,7 +74,7 @@
   min-height: 52px;
   padding: 0 28px;
   border-radius: 999px;
-  font-size: clamp(13px, .84vw, 17px);
+  font-size: clamp(15px, 1.05vw, 18px);
   font-weight: 600;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
 }

@@ -43,7 +43,7 @@
 }
 
 .heroEyebrow {
-  font-size: clamp(11px, 0.72vw, 14px);
+  font-size: clamp(13px, 0.86vw, 15px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -81,7 +81,7 @@
   padding: 14px 30px;
   background: rgba(255, 255, 255, 0.08);
   color: var(--text-light, #f4f1ec);
-  font-size: clamp(13px, 0.84vw, 17px);
+  font-size: clamp(15px, 1.05vw, 18px);
   font-weight: 500;
   border: 1px solid rgba(244, 241, 236, 0.28);
   backdrop-filter: blur(10px);
@@ -99,7 +99,7 @@
   position: relative;
   padding-left: 22px;
   color: rgba(233, 228, 220, 0.88);
-  font-size: clamp(14px, 0.96vw, 18px);
+  font-size: clamp(15px, 1.05vw, 18px);
   line-height: 1.55;
 }
 
@@ -173,7 +173,7 @@
 
 /* ── Shared utilities ── */
 .eyebrow {
-  font-size: clamp(11px, 0.72vw, 14px);
+  font-size: clamp(13px, 0.86vw, 15px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -182,7 +182,7 @@
 }
 
 .eyebrowLight {
-  font-size: clamp(11px, 0.72vw, 14px);
+  font-size: clamp(13px, 0.86vw, 15px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -215,7 +215,7 @@
 }
 
 .bodyText {
-  font-size: clamp(14px, 0.96vw, 19px);
+  font-size: clamp(16px, 1.1vw, 19px);
   line-height: 1.72;
   color: var(--text-dark-sub, #505762);
   max-width: 540px;
@@ -230,7 +230,7 @@
   padding: 14px 30px;
   background: var(--dark, #0c0f14);
   color: #fff;
-  font-size: clamp(13px, 0.84vw, 17px);
+  font-size: clamp(15px, 1.05vw, 18px);
   font-weight: 500;
   transition: transform 140ms ease, background 140ms ease;
 }
@@ -262,7 +262,7 @@
   padding: 14px 30px;
   background: transparent;
   color: var(--text-dark, #1c1f27);
-  font-size: clamp(13px, 0.84vw, 17px);
+  font-size: clamp(15px, 1.05vw, 18px);
   font-weight: 500;
   border: 1.5px solid rgba(30, 33, 39, 0.44);
   transition: border-color 140ms ease, transform 140ms ease;
@@ -339,7 +339,7 @@
   position: relative;
   padding-left: 20px;
   color: var(--text-dark-sub, #505762);
-  font-size: clamp(14px, 0.9vw, 16px);
+  font-size: clamp(15px, 1.05vw, 17px);
   line-height: 1.6;
 }
 
@@ -402,7 +402,7 @@
 
 .statsBody {
   color: rgba(218, 213, 204, 0.74);
-  font-size: clamp(15px, 0.96vw, 19px);
+  font-size: clamp(16px, 1.1vw, 19px);
   line-height: 1.7;
 }
 
@@ -482,7 +482,7 @@
 }
 
 .valueBody {
-  font-size: clamp(13px, 0.82vw, 16px);
+  font-size: clamp(15px, 1vw, 17px);
   line-height: 1.7;
   color: var(--text-dark-sub, #505762);
 }
@@ -517,7 +517,7 @@
 .teamLead {
   max-width: 34rem;
   color: rgba(200, 196, 188, 0.76);
-  font-size: clamp(15px, 0.94vw, 18px);
+  font-size: clamp(16px, 1.05vw, 18px);
   line-height: 1.68;
 }
 
@@ -583,7 +583,7 @@
 }
 
 .teamBio {
-  font-size: clamp(13px, 0.8vw, 15px);
+  font-size: clamp(14px, 0.95vw, 16px);
   line-height: 1.7;
   color: rgba(200, 196, 188, 0.8);
 }

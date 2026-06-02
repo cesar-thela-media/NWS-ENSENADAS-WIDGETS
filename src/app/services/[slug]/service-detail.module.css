@@ -88,7 +88,7 @@
   position: relative;
   padding-left: 22px;
   color: rgba(233, 228, 220, 0.88);
-  font-size: clamp(14px, 0.96vw, 18px);
+  font-size: clamp(15px, 1.05vw, 18px);
   line-height: 1.55;
 }
 
@@ -168,7 +168,7 @@
   padding: 14px 30px;
   background: #fff;
   color: #101419;
-  font-size: clamp(13px, 0.84vw, 17px);
+  font-size: clamp(15px, 1.05vw, 18px);
   font-weight: 500;
   transition: transform 140ms ease, opacity 140ms ease;
 }
@@ -187,7 +187,7 @@
   background: rgba(255, 255, 255, 0.12);
   border: 1px solid rgba(255, 255, 255, 0.6);
   color: #f4f1ec;
-  font-size: clamp(13px, 0.84vw, 17px);
+  font-size: clamp(15px, 1.05vw, 18px);
   font-weight: 500;
   transition: transform 140ms ease, opacity 140ms ease;
 }
@@ -220,14 +220,14 @@
 
 .sectionLead {
   max-width: 40rem;
-  font-size: clamp(15px, 0.96vw, 18px);
+  font-size: clamp(16px, 1.05vw, 18px);
   line-height: 1.68;
   color: var(--text-dark-sub, #505762);
   margin-bottom: 18px;
 }
 
 .eyebrow {
-  font-size: clamp(11px, 0.72vw, 14px);
+  font-size: clamp(13px, 0.86vw, 15px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -236,7 +236,7 @@
 }
 
 .eyebrowLight {
-  font-size: clamp(11px, 0.72vw, 14px);
+  font-size: clamp(13px, 0.86vw, 15px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -269,7 +269,7 @@
 }
 
 .bodyText {
-  font-size: clamp(14px, 0.96vw, 19px);
+  font-size: clamp(16px, 1.1vw, 19px);
   line-height: 1.74;
   color: var(--text-dark-sub, #505762);
   max-width: 580px;
@@ -324,7 +324,7 @@
   display: grid;
   grid-template-columns: 22px 1fr;
   gap: 10px;
-  font-size: clamp(13px, 0.82vw, 15px);
+  font-size: clamp(14px, 0.95vw, 16px);
   color: rgba(200, 196, 188, 0.84);
   line-height: 1.5;
 }
@@ -344,7 +344,7 @@
   border-radius: 999px;
   background: var(--gold, #a07840);
   color: #fff;
-  font-size: clamp(13px, 0.84vw, 16px);
+  font-size: clamp(15px, 1vw, 17px);
   font-weight: 500;
   letter-spacing: 0.02em;
   transition: background 140ms ease, transform 140ms ease;
@@ -385,7 +385,7 @@
 .processLead,
 .relatedLead {
   max-width: 34rem;
-  font-size: clamp(15px, 0.94vw, 18px);
+  font-size: clamp(16px, 1.05vw, 18px);
   line-height: 1.68;
 }
 
@@ -425,7 +425,7 @@
   padding: 13px 28px;
   background: transparent;
   color: var(--text-light, #f4f1ec);
-  font-size: clamp(13px, 0.84vw, 16px);
+  font-size: clamp(15px, 1vw, 17px);
   font-weight: 500;
   border: 1px solid rgba(255, 255, 255, 0.44);
   transition: border-color 140ms ease, transform 140ms ease;
@@ -511,7 +511,7 @@
 }
 
 .stepBody {
-  font-size: clamp(13px, 0.8vw, 15px);
+  font-size: clamp(14px, 0.95vw, 16px);
   line-height: 1.7;
   color: var(--text-dark-sub, #505762);
 }
@@ -624,4 +624,15 @@
 
 @media (max-width: 700px) {
   .relatedGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .heroTagline { font-size: clamp(16px, 4.5vw, 22px); }
+  .heroPrice   { font-size: 14px; }
+  .featurePill { font-size: 11px; padding: 5px 11px; }
+  .processGrid { grid-template-columns: 1fr; }
+  .galleryGrid { grid-template-columns: repeat(2, 1fr); }
+  .galleryIntro,
+  .processIntro,
+  .relatedIntro { flex-direction: column; align-items: flex-start; }
 }

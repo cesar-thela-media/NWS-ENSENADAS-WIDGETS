@@ -38,7 +38,7 @@
 }
 
 .heroEyebrow {
-  font-size: clamp(11px, 0.72vw, 14px);
+  font-size: clamp(13px, 0.86vw, 15px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -76,7 +76,7 @@
   min-height: 52px;
   border-radius: 999px;
   padding: 0 28px;
-  font-size: clamp(13px, 0.84vw, 17px);
+  font-size: clamp(15px, 1.05vw, 18px);
   font-weight: 600;
   transition: transform 160ms ease, border-color 160ms ease, background 160ms ease, color 160ms ease;
 }
@@ -117,7 +117,7 @@
   position: relative;
   padding-left: 22px;
   color: rgba(233, 228, 220, 0.9);
-  font-size: clamp(14px, 0.96vw, 18px);
+  font-size: clamp(15px, 1.05vw, 18px);
   line-height: 1.55;
 }
 
@@ -167,7 +167,7 @@
   position: relative;
   padding-left: 18px;
   color: rgba(218, 213, 204, 0.84);
-  font-size: clamp(14px, 0.9vw, 16px);
+  font-size: clamp(15px, 1.05vw, 17px);
   line-height: 1.55;
 }
 
@@ -206,7 +206,7 @@
 }
 
 .eyebrow {
-  font-size: clamp(11px, 0.72vw, 14px);
+  font-size: clamp(13px, 0.86vw, 15px);
   font-weight: 600;
   letter-spacing: 0.14em;
   text-transform: uppercase;
@@ -232,7 +232,7 @@
 
 .sectionBody {
   max-width: 44rem;
-  font-size: clamp(15px, 0.98vw, 19px);
+  font-size: clamp(16px, 1.1vw, 19px);
   line-height: 1.72;
   color: var(--text-dark-sub, #505762);
 }
@@ -263,7 +263,7 @@
   position: relative;
   padding-left: 18px;
   color: var(--text-dark-sub, #505762);
-  font-size: clamp(14px, 0.9vw, 16px);
+  font-size: clamp(15px, 1.05vw, 17px);
   line-height: 1.58;
 }
 
@@ -357,7 +357,7 @@
 }
 
 .cardDesc {
-  font-size: clamp(13px, 0.8vw, 15px);
+  font-size: clamp(14px, 0.95vw, 16px);
   color: var(--text-dark-sub, #505762);
   line-height: 1.62;
   margin-bottom: 14px;
@@ -430,7 +430,7 @@
 
 .whyBody {
   color: rgba(218, 213, 204, 0.76);
-  font-size: clamp(15px, 0.96vw, 19px);
+  font-size: clamp(16px, 1.1vw, 19px);
   line-height: 1.7;
 }
 
@@ -467,7 +467,7 @@
 .whyCardCopy {
   margin-top: 12px;
   color: rgba(218, 213, 204, 0.72);
-  font-size: clamp(14px, 0.88vw, 16px);
+  font-size: clamp(15px, 1vw, 17px);
   line-height: 1.62;
 }
 
@@ -535,4 +535,10 @@
   }
 
   .serviceGrid { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 480px) {
+  .cardBody { padding: 18px 18px 22px; }
+  .whyCard { min-height: 0; }
+  .gridIntro { grid-template-columns: 1fr; }
 }
