@@ -90,7 +90,7 @@
 .cardStack {
   position: relative;
   width: 100%;
-  height: clamp(300px, 28vw, 440px);
+  height: clamp(360px, 34vw, 500px);
 }
 
 /* ── Card base ── */
@@ -199,8 +199,8 @@
 .quote {
   font-family: var(--font-display), Georgia, serif;
   font-style: italic;
-  font-size: clamp(17px, 1.3vw, 22px);
-  line-height: 1.5;
+  font-size: clamp(19px, 1.6vw, 26px);
+  line-height: 1.48;
   color: var(--text-dark-sub, #505762);
   flex: 1;
 }

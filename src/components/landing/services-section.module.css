@@ -76,7 +76,7 @@
 
 .itemNum {
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(13px, 0.84vw, 16px);
+  font-size: clamp(15px, 1.1vw, 18px);
   color: var(--gold, #9c6f34);
   opacity: 0.6;
   line-height: 1;
@@ -90,7 +90,7 @@
 }
 
 .itemTitle {
-  font-size: clamp(14px, 0.96vw, 17px);
+  font-size: clamp(16px, 1.25vw, 20px);
   font-weight: 500;
   color: var(--text-dark, #1a1f27);
   letter-spacing: -0.01em;
@@ -104,7 +104,7 @@
 }
 
 .itemPrice {
-  font-size: clamp(11px, 0.66vw, 12px);
+  font-size: clamp(13px, 0.9vw, 15px);
   color: rgba(78, 87, 100, 0.62);
   letter-spacing: 0.02em;
   white-space: nowrap;
@@ -117,7 +117,7 @@
 }
 
 .itemArrow {
-  font-size: clamp(13px, 0.84vw, 16px);
+  font-size: clamp(16px, 1.1vw, 19px);
   color: var(--gold-mid, #be8a49);
   opacity: 0;
   transform: translateX(-8px);
@@ -183,7 +183,7 @@
   bottom: clamp(48px, 4vw, 68px);
   left: clamp(24px, 2.2vw, 38px);
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(24px, 2vw, 38px);
+  font-size: clamp(28px, 2.6vw, 44px);
   color: rgba(244, 241, 236, 0.9);
   line-height: 1.08;
   letter-spacing: -0.01em;

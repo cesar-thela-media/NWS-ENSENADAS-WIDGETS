@@ -49,8 +49,8 @@
 
 .body {
   margin-top: clamp(28px, 3vw, 42px);
-  max-width: 460px;
-  font-size: clamp(16px, 1vw, 19px);
+  max-width: 480px;
+  font-size: clamp(17px, 1.25vw, 21px);
   line-height: 1.72;
   color: var(--text-dark-sub, #505762);
 }

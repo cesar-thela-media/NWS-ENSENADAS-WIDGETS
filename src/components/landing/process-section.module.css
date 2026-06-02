@@ -39,7 +39,7 @@
 
 .sub {
   margin-top: 16px;
-  font-size: clamp(15px, 1vw, 19px);
+  font-size: clamp(17px, 1.2vw, 21px);
   line-height: 1.6;
   color: rgba(244, 241, 236, 0.52);
 }
@@ -110,7 +110,7 @@
 
 .stepTitle {
   font-family: var(--font-display), Georgia, serif;
-  font-size: clamp(22px, 1.9vw, 32px);
+  font-size: clamp(24px, 2.1vw, 34px);
   line-height: 1.1;
   color: var(--text-light, #f4f1ec);
   margin-bottom: clamp(10px, 1vw, 16px);
@@ -118,9 +118,9 @@
 }
 
 .stepBody {
-  font-size: clamp(14px, 0.92vw, 17px);
+  font-size: clamp(16px, 1.15vw, 19px);
   line-height: 1.68;
-  color: rgba(244, 241, 236, 0.54);
+  color: rgba(244, 241, 236, 0.56);
   max-width: 300px;
 }
 
