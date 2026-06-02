@@ -39,7 +39,7 @@ export const landingContent: LandingContent = {
     primaryCta:      "Explore Our Work",
     secondaryCta:    "Book a Consultation",
     recentLabel:     "Recently Completed",
-    recentProject:   "Master Bath · Sugar Land, TX",
+    recentProject:   "Primary Bath · Sugar Land, TX",
     backgroundImage: NWS_IMAGES.kitchen,
     slideshowImages: HERO_SLIDESHOW_IMAGES,
     recentImage:     NWS_IMAGES.bath,
