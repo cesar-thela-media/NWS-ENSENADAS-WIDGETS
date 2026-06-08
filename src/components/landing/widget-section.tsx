@@ -14,6 +14,7 @@ const WIDGET_SOURCES = [
   "https://ensenadas-development.up.railway.app/widget-hero.min.js",
   "https://ensenadas-development.up.railway.app/widget.min.js",
   "https://ensenadas-development.up.railway.app/widget-video.min.js",
+  "https://ensenadas-development.up.railway.app/widget-form.min.js",
 ];
 
 export function WidgetSection() {
