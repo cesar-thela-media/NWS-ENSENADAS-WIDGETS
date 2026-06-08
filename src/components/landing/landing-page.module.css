@@ -17,6 +17,7 @@
 .widgetSectionInner {
   display: grid;
   gap: 1.5rem;
+  justify-items: center;
   padding: 1.5rem;
   background: #ffffff;
   border-radius: 1.5rem;
@@ -24,7 +25,14 @@
 }
 
 .widgetSlot {
+  display: flex;
+  justify-content: center;
+  width: 100%;
   min-height: 240px;
+}
+
+.widgetSlot > script {
+  display: none;
 }
 
 .sectionWrap {
