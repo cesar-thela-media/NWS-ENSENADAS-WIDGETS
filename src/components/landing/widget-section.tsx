@@ -10,11 +10,53 @@ const WIDGET_CONFIG = {
   embedToken: "v1.429cf46338b76216587b8efe6dedc0e3199db63db45ea54d374c2f7a25dd0e3b",
 };
 
-const WIDGET_SOURCES = [
-  "https://ensenadas-development.up.railway.app/widget-hero.min.js",
-  "https://ensenadas-development.up.railway.app/widget.min.js",
-  "https://ensenadas-development.up.railway.app/widget-video.min.js",
-  "https://ensenadas-development.up.railway.app/widget-form.min.js",
+const WIDGET_EMBEDS = [
+  {
+    src: "https://ensenadas-development.up.railway.app/widget-hero.min.js",
+    dataset: {
+      runtimeId: WIDGET_CONFIG.runtimeId,
+      realtorId: WIDGET_CONFIG.realtorId,
+      apiUrl: WIDGET_CONFIG.apiUrl,
+      embedToken: WIDGET_CONFIG.embedToken,
+    },
+  },
+  {
+    src: "https://ensenadas-development.up.railway.app/widget.min.js",
+    dataset: {
+      runtimeId: WIDGET_CONFIG.runtimeId,
+      realtorId: WIDGET_CONFIG.realtorId,
+      apiUrl: WIDGET_CONFIG.apiUrl,
+      embedToken: WIDGET_CONFIG.embedToken,
+    },
+  },
+  {
+    src: "https://ensenadas-development.up.railway.app/widget-video.min.js",
+    dataset: {
+      runtimeId: WIDGET_CONFIG.runtimeId,
+      realtorId: WIDGET_CONFIG.realtorId,
+      apiUrl: WIDGET_CONFIG.apiUrl,
+      embedToken: WIDGET_CONFIG.embedToken,
+    },
+  },
+  {
+    src: "https://ensenadas-development.up.railway.app/widget-form.min.js",
+    dataset: {
+      runtimeId: WIDGET_CONFIG.runtimeId,
+      realtorId: WIDGET_CONFIG.realtorId,
+      apiUrl: WIDGET_CONFIG.apiUrl,
+      embedToken: WIDGET_CONFIG.embedToken,
+    },
+  },
+  {
+    src: "https://ensenadas-development.up.railway.app/widget-custom.min.js",
+    dataset: {
+      widgetType: "custom",
+      runtimeId: WIDGET_CONFIG.runtimeId,
+      widgetId: "6a5014e61a3248d562e8e2c0",
+      apiUrl: WIDGET_CONFIG.apiUrl,
+      embedToken: WIDGET_CONFIG.embedToken,
+    },
+  },
 ];
 
 export function WidgetSection() {
@@ -23,7 +65,7 @@ export function WidgetSection() {
   useEffect(() => {
     const mountedScripts: HTMLScriptElement[] = [];
 
-    WIDGET_SOURCES.forEach((src, index) => {
+    WIDGET_EMBEDS.forEach(({ src, dataset }, index) => {
       const slot = slotRefs.current[index];
 
       if (!slot) {
@@ -35,10 +77,8 @@ export function WidgetSection() {
       const script = document.createElement("script");
       script.src = src;
       script.async = true;
-      script.dataset.runtimeId = WIDGET_CONFIG.runtimeId;
-      script.dataset.realtorId = WIDGET_CONFIG.realtorId;
-      script.dataset.apiUrl = WIDGET_CONFIG.apiUrl;
-      script.dataset.embedToken = WIDGET_CONFIG.embedToken;
+
+      Object.assign(script.dataset, dataset);
 
       slot.appendChild(script);
       mountedScripts.push(script);
@@ -58,7 +98,7 @@ export function WidgetSection() {
   return (
     <section className={styles.widgetSection} aria-label="Property widgets">
       <div className={styles.widgetSectionInner}>
-        {WIDGET_SOURCES.map((src, index) => (
+        {WIDGET_EMBEDS.map(({ src }, index) => (
           <div
             key={src}
             className={styles.widgetSlot}
