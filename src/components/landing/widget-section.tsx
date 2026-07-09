@@ -80,6 +80,10 @@ export function WidgetSection() {
 
       Object.assign(script.dataset, dataset);
 
+      if (dataset.widgetType === "custom") {
+        script.dataset.apiUrl = window.location.origin;
+      }
+
       slot.appendChild(script);
       mountedScripts.push(script);
     });
